@@ -42,16 +42,16 @@ public class OneeWebElements {
 
     public String searchList = "//*[@id='root']/div/div/div/div[5]/div[2]/div[2]//a";
     /*************LOG IN PAGE*************/
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div/div/h2")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/div/div/h2")
     public WebElement loginHeader;
     @FindBy(xpath = "//*[@id=\"root\"]/div/div/header/div/div[3]/div/div/button[2]")
-    public WebElement loginButton;
+    public WebElement loginButtonLogin;
     @FindBy(id = "login_email")
-    public WebElement uName;
+    public WebElement userMail;
     @FindBy(id = "login_password")
     public WebElement userPassword;
     @FindBy(xpath = "//*[@id=\"login\"]/div[2]/div[1]/button")
-    public WebElement submitButton;
+    public WebElement loginSubmitButtonLogin;
 
     /*************REGISTER PAGE*************/
     public String policyList = "//*[@id=\"register\"]/div[3]/div[2]/div/div/div/div/label/span[2]";
