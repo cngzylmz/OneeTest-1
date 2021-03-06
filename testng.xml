@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="MyCol Front ">
-    <parameter name="appURL" value="http://test.com/" />
-    <parameter name="browserType" value="firefox" />
-    <test name="CreateAnAccount">
+<suite name="Login">
+    <test name="LoginTest">
         <classes>
             <class name="Login"></class>
         </classes>
