@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="OneePages TestSuite">
+    <test name="OneePages">
+        <parameter name="testUrl" value="https://dev.onee.com"/>
+        <parameter name="userName" value="Oneevrpmdev@gmail.com"/>
+        <parameter name="password" value="Onee1oct.2020"/>
+        <parameter name="profileName" value="Property Manager"/>
+        <parameter name="responseCode" value="200"/>
+        <parameter name="testProperty06" value="https://dev.onee.com/detail/10474"/>
+
+        <classes>
+            <class name="Register"></class>
+            <class name="Login"></class>
+            <class name="PmDashboard"></class>
+            <class name="PropertyDetail"></class>
+            <class name="SearchList"></class>
+            <class name="HomePageCheck"></class>
+        </classes>
+    </test>
+</suite>
+
+
+
