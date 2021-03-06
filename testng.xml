@@ -6,6 +6,7 @@
     <test name="CreateAnAccount">
         <classes>
             <class name="HomePageCheck" />
+            <class name="pages.TestDenemeler1" />
         </classes>
     </test>
 </suite>
