@@ -10,7 +10,7 @@
         <parameter name="testProperty06" value="https://dev.onee.com/detail/10474"/>
 
         <classes>
-            <class name="pages.TestDenemeler1"></class>
+            <class name="TestDenemeler1"></class>
 
         </classes>
     </test>

@@ -1,5 +1,3 @@
-package pages;
-
 import helper.TestBase;
 import helper.TestParameters;
 import jsonHelper.ReadJson;
