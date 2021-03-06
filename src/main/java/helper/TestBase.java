@@ -36,9 +36,9 @@ public class TestBase {
 
         @BeforeSuite
         public void beforeSuite() {
-//		System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
-            System.setProperty("webdriver.chrome.driver",
-                    "C:\\Users\\cngz\\Desktop\\workspace\\OneeTest\\libs\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "chrome.driver");
+//            System.setProperty("webdriver.chrome.driver",
+//                    "C:\\Users\\cngz\\Desktop\\workspace\\OneeTest\\libs\\chromedriver.exe");
             driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.manage().deleteAllCookies();
