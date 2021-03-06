@@ -11,7 +11,6 @@
 
         <classes>
             <class name="TestDenemeler1"></class>
-
         </classes>
     </test>
 </suite>
