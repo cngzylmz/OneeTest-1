@@ -13,7 +13,7 @@ public class OneeWebElements {
     public WebElement logo;
     @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/header/div/div[3]/div/div/button[1]")
     public WebElement registerButtonHome;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/header/div/div[3]/div/div/button[2]")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/header/div/div[3]/button[2]")
     public WebElement loginButtonHome;
     @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/div/div[2]/ul/li[4]/button")
     public WebElement searchButtonHome;
@@ -36,7 +36,7 @@ public class OneeWebElements {
     @FindBy(xpath = "/html/body/div[4]/div/div/div/div/div/div")
     public WebElement subscribeSuccessAlertHome;
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/header/div/div[3]/div/div/div[1]/div")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/header/div/div[3]/div/div[2]")
     public WebElement profilePhoto;
 
 
