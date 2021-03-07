@@ -46,7 +46,7 @@ public class HomePage extends OneeWebElements implements OneeMethods, ReadJson {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 300);");
         List<WebElement> travelInspiration = driver.findElements(By.xpath(travelInspirationList));
-        assertEquals(travelInspiration.size(), 2);
+        assertEquals(travelInspiration.size(), 10);
     }
 
     public void trendingDestinationCheck() {

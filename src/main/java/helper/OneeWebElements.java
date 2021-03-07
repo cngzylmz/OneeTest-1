@@ -36,9 +36,10 @@ public class OneeWebElements {
     public WebElement subscribeCheckBoxAlertHome;
     @FindBy(xpath = "/html/body/div[4]/div/div/div/div/div/div[1]")
     public WebElement subscribeSuccessAlertHome;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/header/div/div[3]/div/div[2]")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/header/div/div[3]/div/div")
     public WebElement profilePhoto;
-
+    @FindBy(xpath = "/html/body/div[4]/div/div[2]/div/div[2]/button")
+    public WebElement stripeAlertClose;
 
     /*************LOG IN PAGE*************/
     @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/div/div/h2")

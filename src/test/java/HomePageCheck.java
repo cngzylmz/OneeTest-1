@@ -17,10 +17,10 @@ public class HomePageCheck extends TestBase implements TestParameters, OneeMetho
         homePage(driver).logoCheck();
     }
 
-    @Test(priority = 2)
-    public void registerButtonCheck() {
-        homePage(driver).registerButtonCheck();
-    }
+//    @Test(priority = 2)
+//    public void registerButtonCheck() {
+//        homePage(driver).registerButtonCheck();
+//    }
 
     @Test(priority = 3)
     public void loginButtonCheck() {

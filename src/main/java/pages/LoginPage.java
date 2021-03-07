@@ -28,7 +28,8 @@ public class LoginPage extends OneeWebElements implements ReadJson, OneeMethods 
         userPassword.sendKeys(password);
     }
 
-    public void submitButton() {
+    public void submitButton(int expectedResponseCode) {
+        assertEquals(responseCode(driver.getCurrentUrl()), expectedResponseCode);
         loginSubmitButtonLogin.click();
     }
 
@@ -40,6 +41,6 @@ public class LoginPage extends OneeWebElements implements ReadJson, OneeMethods 
     public void login(String userName, String password, int expectedResponseCode) {
         loginButton(expectedResponseCode);
         userInfo(userName, password);
-        submitButton();
+        submitButton(expectedResponseCode);
     }
 }
