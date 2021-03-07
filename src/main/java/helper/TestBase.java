@@ -40,10 +40,10 @@ public class TestBase {
   System.setProperty("webdriver.chrome.driver", "chromedriver");
 //             System.setProperty("webdriver.chrome.driver",
 //                    "C:\\Users\\cngz\\Desktop\\workspace\\OneeTest\\libs\\chromedriver.exe");
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("headless");
-//        driver = new ChromeDriver(options);
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless");
+        driver = new ChromeDriver(options);
+//        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
