@@ -53,10 +53,10 @@ public class HomePageCheck extends TestBase implements TestParameters, OneeMetho
         homePage(driver).mostPopularCheck();
     }
 
-    @Test(priority = 9)
-    public void subscribeCheck() {
-        homePage(driver).subscribeHomeCheck();
-
-    }
+//    @Test(priority = 9)
+//    public void subscribeCheck() {
+//        homePage(driver).subscribeHomeCheck();
+//
+//    }
 
 }
