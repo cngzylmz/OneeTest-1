@@ -16,18 +16,22 @@ public class HomePageCheck extends TestBase implements TestParameters, OneeMetho
         assertEquals(responseCode(driver.getCurrentUrl()), expectedResponseCode);
         homePage(driver).logoCheck();
     }
+
     @Test(priority = 2)
     public void registerButtonCheck() {
         homePage(driver).registerButtonCheck();
     }
+
     @Test(priority = 3)
     public void loginButtonCheck() {
         homePage(driver).loginButtonCheck();
     }
+
     @Test(priority = 4)
     public void searchButtonCheck() {
         homePage(driver).searchButtonCheck();
     }
+
     @Test(priority = 5)
     public void travelInspirationCheck() {
         homePage(driver).travelInspirationCheck();
@@ -47,6 +51,7 @@ public class HomePageCheck extends TestBase implements TestParameters, OneeMetho
     public void mostPopularCheck() {
         homePage(driver).mostPopularCheck();
     }
+
     @Test(priority = 9)
     public void subscribeCheck() {
         homePage(driver).subscribeHomeCheck();

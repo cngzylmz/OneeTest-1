@@ -3,7 +3,6 @@ package helper;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
@@ -38,12 +37,12 @@ public class TestBase {
     @BeforeSuite
     public void beforeSuite() {
   System.setProperty("webdriver.chrome.driver", "chromedriver");
-//             System.setProperty("webdriver.chrome.driver",
-//                    "C:\\Users\\cngz\\Desktop\\workspace\\OneeTest\\libs\\chromedriver.exe");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");
-        driver = new ChromeDriver(options);
-//        driver = new ChromeDriver();
+//        System.setProperty("webdriver.chrome.driver",
+//                "C:\\Users\\cngz\\Desktop\\workspace\\OneeTest\\libs\\chromedriver.exe");
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("headless");
+//        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -51,7 +50,6 @@ public class TestBase {
 
     @AfterSuite
     public void afterSuite() {
-
         driver.quit();
     }
 

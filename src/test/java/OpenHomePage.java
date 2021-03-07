@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class TestDenemeler1 extends TestBase implements TestParameters, ReadJson {
+public class OpenHomePage extends TestBase implements TestParameters, ReadJson {
 
 @Test
     public void openHomePage(){

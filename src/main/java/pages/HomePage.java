@@ -24,7 +24,7 @@ public class HomePage extends OneeWebElements implements OneeMethods, ReadJson {
     }
 
     public void logoCheck() {
-//        wait(driver).until(ExpectedConditions.invisibilityOf( loading...))
+        wait(driver).until(ExpectedConditions.invisibilityOfElementLocated(By.className("loading")));
         assertTrue(logo.isDisplayed());
     }
 
@@ -90,7 +90,6 @@ public class HomePage extends OneeWebElements implements OneeMethods, ReadJson {
         subscribeCheckBoxHome.click();
         subscribeSubscribeHome.click();
         wait(driver).until(ExpectedConditions.visibilityOf(subscribeSuccessAlertHome));
-//        wait(driver).until(ExpectedConditions.visibilityOfAllElements(subscribeSuccessAlertHome));
-        assertEquals(subscribeSuccessAlertHome, "Success");
+        assertEquals(subscribeSuccessAlertHome.getText(), "Success");
     }
 }

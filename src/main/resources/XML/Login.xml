@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="OneePages">
+    <test name="OneeLogin">
+        <classes>
+            <class name="Login"></class>
+        </classes>
+    </test>
+</suite>

@@ -8,7 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 public class LoginPage extends OneeWebElements implements ReadJson, OneeMethods {
     WebDriver driver;
@@ -17,10 +16,11 @@ public class LoginPage extends OneeWebElements implements ReadJson, OneeMethods 
         this.driver = driver;
     }
 
-    public void loginButton() {
+    public void loginButton(int expectedResponseCode) {
         loginButtonHome.click();
+        assertEquals(responseCode(driver.getCurrentUrl()), expectedResponseCode);
         wait(driver).until(ExpectedConditions.visibilityOf(loginHeader));
-        assertTrue(loginHeader.getText().equalsIgnoreCase("LOGIN"));
+        assertEquals(loginHeader.getText(), "LOGIN");
     }
 
     public void userInfo(String userEmail, String password) {
@@ -37,8 +37,8 @@ public class LoginPage extends OneeWebElements implements ReadJson, OneeMethods 
         assertEquals(profilePhoto.getText(), profileName);
     }
 
-    public void login(String userName, String password) {
-        loginButton();
+    public void login(String userName, String password, int expectedResponseCode) {
+        loginButton(expectedResponseCode);
         userInfo(userName, password);
         submitButton();
     }

@@ -37,5 +37,9 @@ public interface OneeMethods {
         RegisterPages register = PageFactory.initElements(driver, RegisterPages.class);
         return register;
     }
+    default SearchListPage search(WebDriver driver){
+        SearchListPage search = PageFactory.initElements(driver, SearchListPage.class);
+        return search;
+    }
 
 }
