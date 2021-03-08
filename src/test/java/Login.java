@@ -12,6 +12,7 @@ public class Login extends TestBase implements OneeMethods, TestParameters, Read
     public void loginCheck() {
         System.out.println("login check");
         driver.get(testUrl);
+        competition(driver).closeModal();
         assertEquals(responseCode(driver.getCurrentUrl()), expectedResponseCode);
         loginPage(driver).loginButton(expectedResponseCode);
         loginPage(driver).userInfo(userEmail, password);

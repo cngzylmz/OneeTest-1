@@ -14,6 +14,7 @@ public class HomePageCheck extends TestBase implements TestParameters, OneeMetho
     public void logoCheck() {
         System.out.println("homepage check");
         driver.get(testUrl);
+        competition(driver).closeModal();
         assertEquals(responseCode(driver.getCurrentUrl()), expectedResponseCode);
         homePage(driver).logoCheck();
     }

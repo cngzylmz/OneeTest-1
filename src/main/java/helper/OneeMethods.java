@@ -41,5 +41,8 @@ public interface OneeMethods {
         SearchListPage search = PageFactory.initElements(driver, SearchListPage.class);
         return search;
     }
-
+    default CompetitionModal competition(WebDriver driver){
+        CompetitionModal competition = PageFactory.initElements(driver, CompetitionModal.class);
+        return competition;
+    }
 }
