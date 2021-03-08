@@ -9,12 +9,13 @@ import static org.testng.Assert.assertEquals;
 
 public class OpenHomePage extends TestBase implements TestParameters, ReadJson, OneeMethods {
 
-@Test
-    public void openHomePage(){
-    System.out.println("open home page");
-    driver.get(testUrl);
-    competition(driver).closeModal();
-    wait(driver).until(ExpectedConditions.visibilityOf(loginPage(driver).logo));
-    assertEquals(responseCode(driver.getCurrentUrl()),expectedResponseCode);
-}
+    @Test
+    public void openHomePage() throws InterruptedException {
+        System.out.println("open home page");
+        driver.get(testUrl);
+        handler(driver).closeModal();
+        handler(driver).cookiesClose();
+        wait(driver).until(ExpectedConditions.visibilityOf(homePage(driver).logo));
+        assertEquals(responseCode(driver.getCurrentUrl()), expectedResponseCode);
+    }
 }

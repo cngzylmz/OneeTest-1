@@ -5,24 +5,28 @@ import org.openqa.selenium.support.FindBy;
 
 public class OneeWebElements {
     /*************HOME PAGE*************/
-    public String travelInspirationList = "//*[@id=\"root\"]/div/div[1]/div/section[1]/div//a";
-    public String trendingDestinationList = "//*[@id=\"root\"]/div/div[1]/div/section[2]/div/div//a";
-    public String newestPropertyList = "//*[@id=\"root\"]/div/div[1]/div/section[3]/div/div[2]/div/div//a";
-    public String mostPopularList = "//*[@id=\"root\"]/div/div[1]/div/section[3]/div/div[2]/div/div[2]//a";
+    public String travelInspirationList = "//*[@id=\"root\"]/div/div/section[1]/div//a";
+    public String trendingDestinationList = "//*[@id=\"root\"]/div/div/section[2]/div/div//a";
+    public String newestPropertyList = "//*[@id=\"root\"]/div/div/section[3]/div/div[2]/div/div//a";
+    public String mostPopularList = "//*[@id=\"root\"]/div/div/section[3]/div/div[2]/div/div[2]/div/div//a";
     public String searchList = "//*[@id=\"root\"]/div/div[1]/div/div[3]/div[2]/div[2]//a";
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/header/div/div[2]/a/div")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/header/div/div[2]/a/div")
     public WebElement logo;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/header/div/div[3]/div/div/button[1]")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/header/div/div[3]/button[1]")
     public WebElement registerButtonHome;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/header/div/div[3]/button[2]")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/header/div/div[3]/button[2]")
     public WebElement loginButtonHome;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/div/div[2]/div/ul/li[4]/div/button")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[2]/div/ul/li[4]/div/button")
     public WebElement searchButtonHome;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/div/section[2]/div/div")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/section[1]/h1")
+    public WebElement travelInspiration;
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/section[2]/h1")
     public WebElement trendingDestinations;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/div/section[3]/div/div/div/div/div[2]/div")
-    public WebElement mostPopular;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/div/section[4]/div/div[1]/h1")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/section[3]/div/div[1]/div[1]/div/div/div")
+    public WebElement newestProperties;
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/section[3]/div/div/div/div/div[2]/div")
+    public WebElement mostPopularProperties;
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/section[4]/div/div[1]/h1")
     public WebElement subscribeTextHome;
     @FindBy(id = "newsletter_email")
     public WebElement subscribeEmailHome;
@@ -34,7 +38,7 @@ public class OneeWebElements {
     public WebElement subscribeMailAlertHome;
     @FindBy(xpath = "//*[@id=\"newsletter\"]/div[2]/div/div[2]/div")
     public WebElement subscribeCheckBoxAlertHome;
-    @FindBy(xpath = "/html/body/div[4]/div/div/div/div/div/div[1]")
+    @FindBy(xpath = "/html/body/div[3]/div/div/div/div/div/div[1]")
     public WebElement subscribeSuccessAlertHome;
     @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/header/div/div[3]/div/div")
     public WebElement profilePhoto;
@@ -42,10 +46,14 @@ public class OneeWebElements {
     public WebElement stripeAlertClose;
 
     /*************LOG IN PAGE*************/
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/div/div/h2")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div[2]/button/span")
+    public WebElement competitionModalClose;
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/button/span/svg")
+    public WebElement cookiesClose;
+
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div/h2")
     public WebElement loginHeader;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/header/div/div[3]/div/div/button[2]")
-    public WebElement loginButtonLogin;
     @FindBy(id = "login_email")
     public WebElement userMail;
     @FindBy(id = "login_password")

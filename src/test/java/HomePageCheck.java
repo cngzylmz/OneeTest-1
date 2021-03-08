@@ -14,15 +14,15 @@ public class HomePageCheck extends TestBase implements TestParameters, OneeMetho
     public void logoCheck() {
         System.out.println("homepage check");
         driver.get(testUrl);
-        competition(driver).closeModal();
+        handler(driver).closeModal();
         assertEquals(responseCode(driver.getCurrentUrl()), expectedResponseCode);
         homePage(driver).logoCheck();
     }
 
-//    @Test(priority = 2)
-//    public void registerButtonCheck() {
-//        homePage(driver).registerButtonCheck();
-//    }
+    @Test(priority = 2)
+    public void registerButtonCheck() {
+        homePage(driver).registerButtonCheck();
+    }
 
     @Test(priority = 3)
     public void loginButtonCheck() {
@@ -54,10 +54,10 @@ public class HomePageCheck extends TestBase implements TestParameters, OneeMetho
         homePage(driver).mostPopularCheck();
     }
 
-//    @Test(priority = 9)
-//    public void subscribeCheck() {
-//        homePage(driver).subscribeHomeCheck();
-//
-//    }
+    @Test(priority = 9)
+    public void subscribeCheck() {
+        homePage(driver).subscribeHomeCheck();
+
+    }
 
 }
