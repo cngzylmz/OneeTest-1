@@ -37,9 +37,9 @@ public class TestBase {
 
     @BeforeSuite
     public void beforeSuite() {
-//  System.setProperty("webdriver.chrome.driver", "chromedriver");
-        System.setProperty("webdriver.chrome.driver",
-                "C:\\Users\\cngz\\Desktop\\workspace\\OneeTest\\libs\\chromedriver.exe");
+  System.setProperty("webdriver.chrome.driver", "chromedriver");
+//        System.setProperty("webdriver.chrome.driver",
+//                "C:\\Users\\cngz\\Desktop\\workspace\\OneeTest\\libs\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
         driver = new ChromeDriver(options);
