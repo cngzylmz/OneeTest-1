@@ -43,12 +43,12 @@ public class OneeWebElements {
     @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/header/div/div[3]/div/div")
     public WebElement profilePhoto;
     @FindBy(xpath = "/html/body/div[4]/div/div[2]/div/div[2]/button")
-    public WebElement stripeAlertClose;
+    public WebElement stripePopupClose;
 
     /*************LOG IN PAGE*************/
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div[2]/button/span")
     public WebElement competitionModalClose;
-    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/button/span/svg")
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/button")
     public WebElement cookiesClose;
 
 
