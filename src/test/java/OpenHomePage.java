@@ -17,5 +17,6 @@ public class OpenHomePage extends TestBase implements TestParameters, ReadJson, 
         handler(driver).cookiesClose();
         wait(driver).until(ExpectedConditions.visibilityOf(homePage(driver).logo));
         assertEquals(responseCode(driver.getCurrentUrl()), expectedResponseCode);
+
     }
 }
