@@ -2,7 +2,7 @@
 <suite name="OpenHomePage">
     <test name="OpenHomePage">
         <classes>
-            <class name=""></class>
+            <class name="OpenHomePage"></class>
         </classes>
     </test>
 </suite>
