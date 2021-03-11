@@ -53,7 +53,6 @@ public class TestBase {
     public void afterSuite() {
         driver.quit();
     }
-
     /*
      * @Test(dataProvider = "dp") public void f(Integer n, String s) {
      *
