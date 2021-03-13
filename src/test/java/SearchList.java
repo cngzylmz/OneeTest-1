@@ -1,3 +1,4 @@
+import helper.AllureListener;
 import helper.OneeMethods;
 import helper.TestBase;
 import helper.TestParameters;
@@ -5,12 +6,13 @@ import jsonHelper.ReadJson;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
 import static org.testng.Assert.assertEquals;
-
+@Listeners({AllureListener.class})
 public class SearchList extends TestBase implements OneeMethods, TestParameters, ReadJson {
     String country = "France";
     String user = "cengiz.yilmaz@onee.com";

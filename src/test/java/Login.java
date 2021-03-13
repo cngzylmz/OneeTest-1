@@ -1,11 +1,13 @@
+import helper.AllureListener;
 import helper.OneeMethods;
 import helper.TestBase;
 import helper.TestParameters;
 import jsonHelper.ReadJson;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
-
+@Listeners({AllureListener.class})
 public class Login extends TestBase implements OneeMethods, TestParameters, ReadJson {
 //    @Description("User portal login control")
     @Test
