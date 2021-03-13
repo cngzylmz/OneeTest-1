@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
 
 public class LoginPage extends OneeWebElements implements ReadJson, OneeMethods {
     WebDriver driver;
@@ -23,6 +24,18 @@ public class LoginPage extends OneeWebElements implements ReadJson, OneeMethods 
         assertEquals(loginHeader.getText(), "LOGIN");
     }
 
+    public void emailAlertCheck() {
+        loginButtonHome.click();
+        wait(driver).until(ExpectedConditions.visibilityOfAllElements(emailAlertLogin));
+        assertEquals(emailAlertLogin.getText(), "You need to enter your email address");
+    }
+
+    public void passwordAlertCheck() {
+        loginButtonHome.click();
+        wait(driver).until(ExpectedConditions.visibilityOfAllElements(passwordAlertLogin));
+        assertEquals(emailAlertLogin.getText(), "Password required");
+    }
+
     public void userInfo(String userEmail, String password) {
         userMail.sendKeys(userEmail);
         userPassword.sendKeys(password);
@@ -30,15 +43,26 @@ public class LoginPage extends OneeWebElements implements ReadJson, OneeMethods 
 
     public void submitButton(int expectedResponseCode) {
         assertEquals(responseCode(driver.getCurrentUrl()), expectedResponseCode);
-        loginSubmitButtonLogin.click();
+        loginSubmitLogin.click();
     }
 
-    public void checkName(String profileName) {
+    public void forgotPasswordButtonCheck() {
+        wait(driver).until(ExpectedConditions.elementToBeClickable(forgotPasswordLogin));
+    }
+
+    public void registerButtonCheck() {
+        wait(driver).until(ExpectedConditions.elementToBeClickable(registerButtonLogin));
+    }
+
+    public void checkLogin() {
         wait(driver).until(ExpectedConditions.invisibilityOfElementLocated(By.className("loading")));
-        assertEquals(profilePhoto.getText(), profileName);
+        assertFalse(profilePhoto.getAttribute("src").isEmpty());
     }
 
     public void login(String userName, String password, int expectedResponseCode) {
+        handler(driver).closeModal();
+        handler(driver).stripePopupClose();
+        handler(driver).closeCookies();
         loginButton(expectedResponseCode);
         userInfo(userName, password);
         submitButton(expectedResponseCode);
