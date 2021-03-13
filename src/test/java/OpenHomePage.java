@@ -19,7 +19,7 @@ public class OpenHomePage extends TestBase implements TestParameters, ReadJson, 
         System.out.println("open home page");
         driver.get(testUrl);
         handler(driver).closeModal();
-        handler(driver).cookiesClose();
+        handler(driver).closeCookies();
         wait(driver).until(ExpectedConditions.visibilityOf(homePage(driver).logo));
         assertEquals(responseCode(driver.getCurrentUrl()), expectedResponseCode);
 

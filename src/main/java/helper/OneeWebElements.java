@@ -5,61 +5,85 @@ import org.openqa.selenium.support.FindBy;
 
 public class OneeWebElements {
     /*************HOME PAGE*************/
-    public String travelInspirationList = "//*[@id=\"root\"]/div/div/section[1]/div//a";
-    public String trendingDestinationList = "//*[@id=\"root\"]/div/div/section[2]/div/div//a";
-    public String newestPropertyList = "//*[@id=\"root\"]/div/div/section[3]/div/div[2]/div/div//a";
-    public String mostPopularList = "//*[@id=\"root\"]/div/div/section[3]/div/div[2]/div/div[2]/div/div//a";
-    public String searchList = "//*[@id=\"root\"]/div/div[1]/div/div[3]/div[2]/div[2]//a";
-    @FindBy(xpath = "//*[@id=\"root\"]/div/header/div/div[2]/a/div")
+    public String travelInspirationList = "//section[1]/div//a";
+    public String trendingDestinationList = "//section[2]/div/div//a";
+    public String newestPropertyList = "//section[3]/div/div[2]/div/div//a";
+    public String mostPopularList = "//section[3]/div/div[2]/div/div[2]/div/div//a";
+    public String guestSearchBarList = "//body/div[4]/div/div//div[@role='listbox']//div";
+    public String searchList = "//div[@id='root']//div/div[3]//div[@class='ant-row mb-20']//a";
+    @FindBy(xpath = "//a[@title='logo']")
     public WebElement logo;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/header/div/div[3]/button[1]")
+    @FindBy(xpath = "//button[contains(text(),'Register')]")
     public WebElement registerButtonHome;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/header/div/div[3]/button[2]")
+    @FindBy(xpath = "//button[contains(text(),'Log In')]")
     public WebElement loginButtonHome;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[2]/div/ul/li[4]/div/button")
-    public WebElement searchButtonHome;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/section[1]/h1")
+    @FindBy(xpath = "//ul[@class='search-container']//button[contains(text(),' Search')]")
+    public WebElement searchButton;
+    @FindBy(xpath = "//section[1]//h1[contains(text(),'Travel inspiration')]")
     public WebElement travelInspiration;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/section[2]/h1")
+    @FindBy(xpath = "//section[2]//h1[contains(text(),'Trending Destinations')]")
     public WebElement trendingDestinations;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/section[3]/div/div[1]/div[1]/div/div/div")
+    @FindBy(xpath = "//section[3]/div/div[1]/div[1]/div/div/div[@role='tab']")
     public WebElement newestProperties;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/section[3]/div/div/div/div/div[2]/div")
+    @FindBy(xpath = "//section[3]/div/div/div/div/div[2]/div[@role='tab']")
     public WebElement mostPopularProperties;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/section[4]/div/div[1]/h1")
+    @FindBy(xpath = "//section[4]/div/div[1]/h1")
     public WebElement subscribeTextHome;
     @FindBy(id = "newsletter_email")
     public WebElement subscribeEmailHome;
-    @FindBy(xpath = "//*[@id=\"newsletter\"]/div[1]/div[2]/button")
+    @FindBy(xpath = "//form[@id='newsletter']//button[@class='obtn obtn-primary']")
     public WebElement subscribeSubscribeHome;
-    @FindBy(xpath = "//*[@id=\"newsletter\"]/div[2]/div/div/div/label/span[1]")
+    @FindBy(xpath = "//form[@id='newsletter']/div[2]//span[@class='ant-checkbox']")
     public WebElement subscribeCheckBoxHome;
-    @FindBy(xpath = "//*[@id=\"newsletter\"]/div[1]/div[1]/div/div/div[2]/div")
+    @FindBy(xpath = "//form[@id='newsletter']/div[1]//div[@role='alert']")
     public WebElement subscribeMailAlertHome;
-    @FindBy(xpath = "//*[@id=\"newsletter\"]/div[2]/div/div[2]/div")
+    @FindBy(xpath = "//form[@id='newsletter']/div[2]//div[@role='alert']")
     public WebElement subscribeCheckBoxAlertHome;
-    @FindBy(xpath = "/html/body/div[3]/div/div/div/div/div/div[1]")
+    @FindBy(xpath = "/html[1]/body[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]")
+    ///html/body//div[@class='ant-notification ant-notification-topRight']//div[@role='alert']/div[@class='ant-notification-notice-message']
     public WebElement subscribeSuccessAlertHome;
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]/header/div/div[3]/div/div")
+    @FindBy(xpath = "//div[@id='root']//div[@class='profile-photo']/span/img")
     public WebElement profilePhoto;
     @FindBy(xpath = "/html/body/div[4]/div/div[2]/div/div[2]/button")
     public WebElement stripePopupClose;
+    @FindBy(xpath = "//div[@role='dialog']/div[@role='document']//button[@type='button']/span")
+    public WebElement competitionModalClose;
 
     /*************LOG IN PAGE*************/
-    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div[2]/button/span")
-    public WebElement competitionModalClose;
-    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/button")
+    @FindBy(xpath = "//div[@id='root']/div[@role='alert']/button[@type='button']")
     public WebElement cookiesClose;
-
-
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div/h2")
+    @FindBy(xpath = "//div[@id='root']//h2[contains(text(),'LOGIN')]")
     public WebElement loginHeader;
     @FindBy(id = "login_email")
     public WebElement userMail;
     @FindBy(id = "login_password")
     public WebElement userPassword;
-    @FindBy(xpath = "//*[@id=\"login\"]/div[2]/div[1]/button")
-    public WebElement loginSubmitButtonLogin;
+    @FindBy(xpath = "//form[@id='login']//button[contains(text(),'Login')]")
+    public WebElement loginSubmitLogin;
+    @FindBy(xpath = "//form[@id='login']/div[2]//button[@type='reset']")
+    public WebElement forgotPasswordLogin;
+    @FindBy(xpath = "//form[@id='login']/div[1]/div[1]//div[@role='alert']")
+    public WebElement emailAlertLogin;/*You need to enter your email address*/
+    @FindBy(xpath = "//form[@id='login']/div[1]/div[2]//div[@role='alert']")
+    public WebElement passwordAlertLogin; /*Password required*/
+    @FindBy(xpath = "//form[@id='login']/div[3]//button[@type='reset']")
+    public WebElement registerButtonLogin;
+
+    /*************REGISTER PAGE*************/
+    @FindBy(id = "guests")
+    public WebElement guestSearchBar;
+    @FindBy(xpath = "//li[@id='guests']//div[@role='tooltip']//div[@class='ant-row']//span[@class='ant-select-selection-search']/input")
+    public WebElement guestListSearchBar;
+    @FindBy(xpath = "//div[@role='option']") //aria-label="Cengiz YILMAZ" //aria-selected="true"
+    public WebElement selectGuest;
+    @FindBy(xpath = "//li[@id='callendar']/div/div/div[1]/input")
+    public WebElement checkInDate;
+    @FindBy(xpath = "//li[@id='callendar']/div/div/div[3]/input")
+    public WebElement checkoutDate;
+    @FindBy(xpath = "//div[@id='search-list']//input")
+    public WebElement searchInput;
+
+
 
     /*************REGISTER PAGE*************/
     public String policyList = "//*[@id=\"register\"]/div[3]/div[2]/div/div/div/div/label/span[2]";
@@ -216,10 +240,6 @@ public class OneeWebElements {
     @FindBy(xpath = "//button[contains(text(),'Ask a question')]")
     public WebElement askQuestion;
 
-
-
-    @FindBy(id = "rc_select_0")
-    public WebElement searchInputHome;
 
 
 }

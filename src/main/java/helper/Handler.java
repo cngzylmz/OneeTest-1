@@ -14,12 +14,12 @@ public class Handler extends OneeWebElements {
         try {
             competitionModalClose.click();
         } catch (Exception e) {
-            System.out.println("Modal gösterilmiyor...");
+            System.out.println("Competition modal gösterilmiyor...");
         }
 
     }
 
-    public void cookiesClose() {
+    public void closeCookies() {
         try {
             try {
                 Actions actions = new Actions(driver);

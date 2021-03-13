@@ -36,8 +36,8 @@ public class HomePage extends OneeWebElements implements OneeMethods, ReadJson {
     }
 
     public void searchButtonCheck() {
-        scrollToElement(driver, searchButtonHome);
-        assertTrue(searchButtonHome.isDisplayed());
+        scrollToElement(driver, searchButton);
+        assertTrue(searchButton.isDisplayed());
     }
 
     public void travelInspirationCheck() {
