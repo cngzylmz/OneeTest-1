@@ -1,6 +1,7 @@
 package helper;
 
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -42,16 +43,17 @@ public class TestBase {
 //                "C:\\Users\\cngz\\Desktop\\workspace\\OneeTest\\libs\\chromedriverwin.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
+        options.addArguments("--window-size=1024x768");
         driver = new ChromeDriver(options);
 //        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        driver.manage().window().setSize(new Dimension(1024,768));
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
     @AfterSuite
     public void afterSuite() {
-        driver.quit();
+     driver.quit();
     }
     /*
      * @Test(dataProvider = "dp") public void f(Integer n, String s) {

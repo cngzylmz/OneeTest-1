@@ -11,6 +11,9 @@ public class OneeWebElements {
     public String mostPopularList = "//section[3]/div/div[2]/div/div[2]/div/div//a";
     public String guestSearchBarList = "//body/div[4]/div/div//div[@role='listbox']//div";
     public String searchList = "//div[@id='root']//div/div[3]//div[@class='ant-row mb-20']//a";
+
+    @FindBy(xpath = "//div[@id='root']//div[@class='video-background']")
+    public WebElement videoHomePage;
     @FindBy(xpath = "//a[@title='logo']")
     public WebElement logo;
     @FindBy(xpath = "//button[contains(text(),'Register')]")

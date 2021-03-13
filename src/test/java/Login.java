@@ -2,6 +2,7 @@ import helper.AllureListener;
 import helper.OneeMethods;
 import helper.TestBase;
 import helper.TestParameters;
+import io.qameta.allure.Description;
 import jsonHelper.ReadJson;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -9,7 +10,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 @Listeners({AllureListener.class})
 public class Login extends TestBase implements OneeMethods, TestParameters, ReadJson {
-//    @Description("User portal login control")
+    @Description("User portal login control")
     @Test
     public void loginCheck() {
         System.out.println("login check");
