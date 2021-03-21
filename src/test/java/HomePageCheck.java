@@ -15,10 +15,10 @@ public class HomePageCheck extends TestBase implements TestParameters, OneeMetho
     @Description("Onee Logo is displayed home page")
     @Parameters("testUrl")
     @Test(priority = 1)
-    public void logoCheck() {
+    public void logoCheck() throws InterruptedException {
         System.out.println("homepage check");
         driver.get(testUrl);
-        handler(driver).closeModal();
+        handler(driver).closeCompetitionModal();
         handler(driver).closeCookies();
         assertEquals(responseCode(driver.getCurrentUrl()), expectedResponseCode);
         homePage(driver).logoCheck();

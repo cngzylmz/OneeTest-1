@@ -16,12 +16,11 @@ import static org.testng.Assert.assertEquals;
 public class SearchListPage extends OneeWebElements implements TestParameters, OneeMethods, ReadJson {
     WebDriver driver;
 
-    public void SearchListPage(WebDriver driver) {
+    public SearchListPage(WebDriver driver) {
         this.driver = driver;
     }
 
-
-    public void searchListCheck(String testProperty06, int expectedResponseCode) {
+    public void searchListPropertyCheck(String testProperty06, int expectedResponseCode) {
         scrollToElement(driver, searchButton);
         searchButton.click();
         assertEquals(responseCode(driver.getCurrentUrl()), expectedResponseCode);
@@ -37,9 +36,35 @@ public class SearchListPage extends OneeWebElements implements TestParameters, O
         }
     }
 
-    public void searchProperty(String propertyName, int expectedResponseCode) {
-        searchInput.sendKeys(propertyName);
-        searchButton.click();
+    public void searchLocationInput(String location) {
+        searchInput.sendKeys(location);
+        assertEquals(expectedResponseCode, responseCode(driver.getCurrentUrl()));
+    }
+
+    public void searchDatesInput(String checkInDates, String checkOutDates) {
+        checkInDate.sendKeys(checkInDates);
+        checkOutDate.sendKeys(checkOutDates);
+        videoHomePage.click();/*saçma ama gerekiyor*/
+    }
+
+    public void searchButton(int expectedResponseCode) {
+        wait(driver).until(ExpectedConditions.visibilityOf(searchButton));
         assertEquals(responseCode(driver.getCurrentUrl()), expectedResponseCode);
+        searchButton.click();
+    }
+
+    public void searchListSizeCheck() {
+        List<WebElement> searchList = wait(driver).until(ExpectedConditions.
+                visibilityOfAllElementsLocatedBy(By.xpath(search(driver).searchList)));
+        assertEquals(searchList.size(), 14);
+    }
+
+    public void searchListDateInputCheck(String checkInDates, String checkOutDates) {
+        assertEquals(checkInDate.getAttribute("value"), checkInDates);
+        assertEquals(checkOutDate.getAttribute("value"), checkOutDates);
+    }
+
+    public void searchListLocationInputCheck(String location) {
+        assertEquals(searchInput.getAttribute("value"), location);
     }
 }

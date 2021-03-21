@@ -82,7 +82,7 @@ public class OneeWebElements {
     @FindBy(xpath = "//li[@id='callendar']/div/div/div[1]/input")
     public WebElement checkInDate;
     @FindBy(xpath = "//li[@id='callendar']/div/div/div[3]/input")
-    public WebElement checkoutDate;
+    public WebElement checkOutDate;
     @FindBy(xpath = "//div[@id='search-list']//input")
     public WebElement searchInput;
 

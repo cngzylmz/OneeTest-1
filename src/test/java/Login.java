@@ -12,10 +12,10 @@ import static org.testng.Assert.assertEquals;
 public class Login extends TestBase implements OneeMethods, TestParameters, ReadJson {
     @Description("User portal login control")
     @Test
-    public void loginCheck() {
+    public void loginCheck() throws InterruptedException {
         System.out.println("login check");
         driver.get(testUrl);
-        handler(driver).closeModal();
+        handler(driver).closeCompetitionModal();
         handler(driver).closeCookies();
         assertEquals(responseCode(driver.getCurrentUrl()), expectedResponseCode);
         loginPage(driver).loginButton(expectedResponseCode);

@@ -8,51 +8,47 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 import pages.*;
 
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.Date;
+
 public interface OneeMethods {
 
     default SoftAssert sAssert() {
-        SoftAssert softAssert = new SoftAssert();
-        return softAssert;
+        return new SoftAssert();
     }
 
     default WebDriverWait wait(WebDriver driver) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        return wait;
+        return new WebDriverWait(driver, 10);
     }
 
     default HomePage homePage(WebDriver driver) {
-        HomePage homePage = PageFactory.initElements(driver, HomePage.class);
-        return homePage;
+        return PageFactory.initElements(driver, HomePage.class);
     }
 
     default PropertyDetailPage propertyDetailPage(WebDriver driver) {
-        PropertyDetailPage propertyDetailPage = PageFactory.initElements(driver, PropertyDetailPage.class);
-        return propertyDetailPage;
+        return PageFactory.initElements(driver, PropertyDetailPage.class);
     }
 
     default LoginPage loginPage(WebDriver driver) {
-        LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-        return loginPage;
+        return PageFactory.initElements(driver, LoginPage.class);
     }
 
     default PmPages pmPage(WebDriver driver) {
-        PmPages pmPage = PageFactory.initElements(driver, PmPages.class);
-        return pmPage;
+        return PageFactory.initElements(driver, PmPages.class);
     }
 
     default RegisterPages register(WebDriver driver) {
-        RegisterPages register = PageFactory.initElements(driver, RegisterPages.class);
-        return register;
+        return PageFactory.initElements(driver, RegisterPages.class);
     }
 
     default SearchListPage search(WebDriver driver) {
-        SearchListPage search = PageFactory.initElements(driver, SearchListPage.class);
-        return search;
+        return PageFactory.initElements(driver, SearchListPage.class);
     }
 
     default Handler handler(WebDriver driver) {
-        Handler handler = PageFactory.initElements(driver, Handler.class);
-        return handler;
+        return PageFactory.initElements(driver, Handler.class);
     }
 
     default void scrollToElement(WebDriver driver, WebElement element) {
@@ -60,5 +56,12 @@ public interface OneeMethods {
         js.executeScript("arguments[0].scrollIntoView();",
                 element);
         js.executeScript("window.scrollBy(0,-350)", "");
+    }
+    default String getDateToCalendar(int plusDate){
+        Instant now = Instant.now();
+        Instant after = now.plus(Duration.ofDays(plusDate));
+        SimpleDateFormat formatter= new SimpleDateFormat("dd-MM-yyyy");
+        Date dateAfter = Date.from(after);
+        return formatter.format(dateAfter);
     }
 }

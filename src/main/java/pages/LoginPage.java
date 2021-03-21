@@ -42,8 +42,8 @@ public class LoginPage extends OneeWebElements implements ReadJson, OneeMethods 
     }
 
     public void submitButton(int expectedResponseCode) {
-        assertEquals(responseCode(driver.getCurrentUrl()), expectedResponseCode);
         loginSubmitLogin.click();
+        assertEquals(responseCode(driver.getCurrentUrl()), expectedResponseCode);
     }
 
     public void forgotPasswordButtonCheck() {
@@ -59,8 +59,8 @@ public class LoginPage extends OneeWebElements implements ReadJson, OneeMethods 
         assertFalse(profilePhoto.getAttribute("src").isEmpty());
     }
 
-    public void login(String userName, String password, int expectedResponseCode) {
-        handler(driver).closeModal();
+    public void login(String userName, String password, int expectedResponseCode) throws InterruptedException {
+        handler(driver).closeCompetitionModal();
         handler(driver).stripePopupClose();
         handler(driver).closeCookies();
         loginButton(expectedResponseCode);

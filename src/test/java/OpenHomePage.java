@@ -15,10 +15,10 @@ public class OpenHomePage extends TestBase implements TestParameters, ReadJson, 
 
     @Description("Just open home page.")
     @Test
-    public void openHomePage() {
+    public void openHomePage() throws InterruptedException {
         System.out.println("open home page");
         driver.get(testUrl);
-        handler(driver).closeModal();
+        handler(driver).closeCompetitionModal();
         handler(driver).closeCookies();
         wait(driver).until(ExpectedConditions.visibilityOf(homePage(driver).logo));
         assertEquals(responseCode(driver.getCurrentUrl()), expectedResponseCode);
