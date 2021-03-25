@@ -11,6 +11,7 @@ public class OneeWebElements {
     public String mostPopularList = "//section[3]/div/div[2]/div/div[2]/div/div//a";
     public String guestSearchBarList = "//body/div[4]/div/div//div[@role='listbox']//div";
     public String searchList = "//div[@id='root']//div/div[3]//div[@class='ant-row mb-20']//a";
+    public String childrenAgesList = "//li[@id='guests']/div[2]/div/div//div[@role='tooltip']//div[@class='guests-tool']/div[@class='ant-row']/div//div[@class='ant-row']//span[@class='ant-select-selection-item']";
 
     @FindBy(xpath = "//div[@id='root']//div[@class='video-background']")
     public WebElement videoHomePage;
@@ -20,8 +21,6 @@ public class OneeWebElements {
     public WebElement registerButtonHome;
     @FindBy(xpath = "//button[contains(text(),'Log In')]")
     public WebElement loginButtonHome;
-    @FindBy(xpath = "//ul[@class='search-container']//button[contains(text(),' Search')]")
-    public WebElement searchButton;
     @FindBy(xpath = "//section[1]//h1[contains(text(),'Travel inspiration')]")
     public WebElement travelInspiration;
     @FindBy(xpath = "//section[2]//h1[contains(text(),'Trending Destinations')]")
@@ -72,9 +71,36 @@ public class OneeWebElements {
     @FindBy(xpath = "//form[@id='login']/div[3]//button[@type='reset']")
     public WebElement registerButtonLogin;
 
-    /*************REGISTER PAGE*************/
+    /*************SEARCH BAR*************/
+    @FindBy(xpath = "//ul[@class='search-container']//button[contains(text(),' Search')]")
+    public WebElement searchButton;
     @FindBy(id = "guests")
     public WebElement guestSearchBar;
+            /********** Without login *********/
+    @FindBy(xpath = "//li[@id='guests']/div[2]/div/div//div[@role='tooltip']//div[@class='ant-row']/div/div/div[1]/div/button[2]")
+    public WebElement guestAdultsAdd;
+    @FindBy(xpath = "//li[@id='guests']/div[2]/div/div//div[@role='tooltip']//div[@class='ant-row']/div/div/div[2]/div/button[2]")
+    public WebElement guestChildrenAdd;
+    @FindBy(xpath = "//li[@id='guests']/div[2]/div/div//div[@role='tooltip']//div[@class='ant-row']/div/div/div[3]/div/button[2]")
+    public WebElement guestPetAdd;
+    @FindBy(xpath = "//li[@id='guests']/div[2]/div/div//div[@role='tooltip']//div[@class='ant-row']/div/div/div[1]/div/button[1]")
+    public WebElement guestAdultsRemove;
+    @FindBy(xpath = "//li[@id='guests']/div[2]/div/div//div[@role='tooltip']//div[@class='ant-row']/div/div/div[2]/div/button[1]")
+    public WebElement guestChildrenRemove;
+    @FindBy(xpath = "//li[@id='guests']/div[2]/div/div//div[@role='tooltip']//div[@class='ant-row']/div/div/div[3]/div/button[1]")
+    public WebElement guestPetRemove;
+    @FindBy(xpath = "//li[@id='guests']/div[2]/div/div//div[@role='tooltip']//div[@class='ant-row']/div/div/div[1]//span[@class='count']")
+    public WebElement guestAdultsCount;
+    @FindBy(xpath = "//li[@id='guests']/div[2]/div/div//div[@role='tooltip']//div[@class='ant-row']/div/div/div[2]//span[@class='count']")
+    public WebElement guestChildrenCount;
+    @FindBy(xpath = "//li[@id='guests']/div[2]/div/div//div[@role='tooltip']//div[@class='ant-row']/div/div/div[3]//span[@class='count']")
+    public WebElement guestPetCount;
+    @FindBy(xpath = "/html//li[@id='guests']/div[2]/div/div//div[@role='tooltip']//div[@class='guests-tool']" +
+            "/div[@class='ant-row']/div//div[@class='ant-row']//div[@class='ant-col ant-col-12']")
+    public WebElement guestChildrenAgeList;
+
+
+
     @FindBy(xpath = "//li[@id='guests']//div[@role='tooltip']//div[@class='ant-row']//span[@class='ant-select-selection-search']/input")
     public WebElement guestListSearchBar;
     @FindBy(xpath = "//div[@role='option']") //aria-label="Cengiz YILMAZ" //aria-selected="true"

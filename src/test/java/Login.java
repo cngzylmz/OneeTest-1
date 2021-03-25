@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 @Listeners({AllureListener.class})
 public class Login extends TestBase implements OneeMethods, TestParameters, ReadJson {
+
     @Description("User portal login control")
     @Test
     public void loginCheck() throws InterruptedException {

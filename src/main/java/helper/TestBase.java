@@ -9,7 +9,7 @@ import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
-public class TestBase {
+public class TestBase implements TestParameters {
     public static WebDriver driver;
 
     @BeforeMethod
@@ -38,23 +38,37 @@ public class TestBase {
 
     @BeforeSuite
     public void beforeSuite() {
-  System.setProperty("webdriver.chrome.driver", "chromedriver");
-//        System.setProperty("webdriver.chrome.driver",
-//                "C:\\Users\\cngz\\Desktop\\workspace\\OneeTest\\libs\\chromedriverwin.exe");
+        try{
+            System.setProperty("webdriver.chrome.driver", "chromedriver");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        try{
+            System.setProperty("webdriver.chrome.driver",
+                    "C:\\Users\\cngz\\Desktop\\workspace\\OneeTest\\libs\\chromedriverwin.exe");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        try{
+            System.setProperty("webdriver.chrome.driver","/Users/cengizyilmaz/IdeaProjects/OneeTest-1/libs/chromedriver-mac");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
-        options.addArguments("--window-size=1024x768");
         driver = new ChromeDriver(options);
 //        driver = new ChromeDriver();
-        driver.manage().window().setSize(new Dimension(1024,768));
+        driver.manage().window().setSize(new Dimension(1500,1500));
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
     @AfterSuite
     public void afterSuite() {
-     driver.quit();
+        driver.quit();
     }
+
     /*
      * @Test(dataProvider = "dp") public void f(Integer n, String s) {
      *

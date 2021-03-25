@@ -12,6 +12,7 @@ import static org.testng.Assert.assertEquals;
 
 @Listeners({AllureListener.class})
 public class HomePageCheck extends TestBase implements TestParameters, OneeMethods, ReadJson {
+
     @Description("Onee Logo is displayed home page")
     @Parameters("testUrl")
     @Test(priority = 1)
