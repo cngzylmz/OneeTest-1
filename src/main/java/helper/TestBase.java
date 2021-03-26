@@ -43,12 +43,12 @@ public class TestBase implements TestParameters {
         }catch (Exception e){
             e.printStackTrace();
         }
-        try{
-            System.setProperty("webdriver.chrome.driver",
-                    "C:\\Users\\cngz\\Desktop\\workspace\\OneeTest\\libs\\chromedriverwin.exe");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+//        try{
+//            System.setProperty("webdriver.chrome.driver",
+//                    "C:\\Users\\cngz\\Desktop\\workspace\\OneeTest\\libs\\chromedriverwin.exe");
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
 //        try{
 //            System.setProperty("webdriver.chrome.driver","/Users/cengizyilmaz/IdeaProjects/OneeTest-1/libs/chromedriver-mac");
 //        }catch (Exception e){
