@@ -49,11 +49,11 @@ public class TestBase implements TestParameters {
         }catch (Exception e){
             e.printStackTrace();
         }
-        try{
-            System.setProperty("webdriver.chrome.driver","/Users/cengizyilmaz/IdeaProjects/OneeTest-1/libs/chromedriver-mac");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+//        try{
+//            System.setProperty("webdriver.chrome.driver","/Users/cengizyilmaz/IdeaProjects/OneeTest-1/libs/chromedriver-mac");
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
