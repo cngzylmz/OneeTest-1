@@ -17,7 +17,7 @@ import java.util.Date;
 public interface OneeMethods{
 
     default WebDriverWait TestParameters(WebDriver d) {
-        return new WebDriverWait(d, 10);
+        return new WebDriverWait(d, 20);
     }
 
     default SoftAssert sAssert() {

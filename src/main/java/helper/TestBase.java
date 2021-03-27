@@ -38,28 +38,24 @@ public class TestBase implements TestParameters {
 
     @BeforeSuite
     public void beforeSuite() {
-        try{
-            System.setProperty("webdriver.chrome.driver", "chromedriver");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-//        try{
-//            System.setProperty("webdriver.chrome.driver",
-//                    "C:\\Users\\cngz\\Desktop\\workspace\\OneeTest\\libs\\chromedriverwin.exe");
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//        try{
-//            System.setProperty("webdriver.chrome.driver","/Users/cengizyilmaz/IdeaProjects/OneeTest-1/libs/chromedriver-mac");
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
 
+        String runningPlatform = "Linux";
+        System.setProperty("webdriver.chrome.driver", "chromedriver");
+//
+//        String runningPlatform = "Windows";
+//        System.setProperty("webdriver.chrome.driver",
+//                "C:\\Users\\cngz\\Desktop\\workspace\\OneeTest\\libs\\chromedriverwin.exe");
+
+//        String runningPlatform = "MacOs";
+//        System.setProperty("webdriver.chrome.driver", "/Users/cengizyilmaz/IdeaProjects/OneeTest-1/libs/chromedriver-mac");
+
+
+        System.out.println(runningPlatform);
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
         driver = new ChromeDriver(options);
 //        driver = new ChromeDriver();
-        driver.manage().window().setSize(new Dimension(1500,1500));
+        driver.manage().window().setSize(new Dimension(1500, 1500));
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
@@ -69,18 +65,7 @@ public class TestBase implements TestParameters {
         driver.quit();
     }
 
-    /*
-     * @Test(dataProvider = "dp") public void f(Integer n, String s) {
-     *
-     * }
-     */
-    /*
-     * @DataProvider public Object[][] dp() {
-     * return new Object[][] {
-     * {1, "a" },
-     * { 2, "b" },
-     * };
-     * }
-     */
+
+
 }
 

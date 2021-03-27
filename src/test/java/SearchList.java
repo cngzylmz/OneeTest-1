@@ -58,7 +58,7 @@ public class SearchList extends TestBase implements OneeMethods, TestParameters,
     @Description("Search List Property Check ")
     @Test(priority = 6, dependsOnMethods = "submit")
     public void searchListPropertyCheck() {
-        search(driver).searchListSizeCheck();
-        search(driver).searchListPropertyCheck(propertyId, expectedResponseCode);
+        search(driver).searchListSizeCheck(1);
+        search(driver).searchListPropertyCheck(propertyId,testUrl);
     }
 }
