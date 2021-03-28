@@ -22,7 +22,7 @@ public interface OneeMethods extends AmenitiesElements {
     }
 
     default WebDriverWait wait(WebDriver d) {
-        return new WebDriverWait(d, 20);
+        return new WebDriverWait(d, 30);
     }
 
     default HomePage homePage(WebDriver d) {
