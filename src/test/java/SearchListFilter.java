@@ -48,7 +48,7 @@ public class SearchListFilter extends TestBase implements OneeMethods, TestParam
         search(driver).searchListFilterBedRoomsBathRooms(26, "add");
         search(driver).searchListFilterBedRoomsApply(1);
     }
-
+//
 //    @Description("Search List Filter Instant Booking Check")
 //    @Test(priority = 6)
 //    public void searchListFilterInstantBooking() {
