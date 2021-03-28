@@ -180,13 +180,11 @@ public class SearchListPage extends OneeWebElements implements TestParameters, O
     }
 
     public void searchFilterAddRemoveCount(int count, String addORemove, WebElement add, WebElement remove, WebElement countCheck) {
-//        wait(driver).until(ExpectedConditions.visibilityOf(add));
+        wait(driver).until(ExpectedConditions.visibilityOf(add));
         firstCount = countCheck.getText();
         if (addORemove.equalsIgnoreCase("add")) {
             for (int i = 1; i <= count; i++) {
-                Actions actions = new Actions(driver);
-                actions.click(add);
-//                add.click();
+                add.click();
             }
         }
         if (addORemove.equalsIgnoreCase("remove")) {
