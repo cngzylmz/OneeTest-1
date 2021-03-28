@@ -61,10 +61,15 @@ public class LoginPage extends OneeWebElements implements ReadJson, OneeMethods 
 
     public void login(String userName, String password, int expectedResponseCode) throws InterruptedException {
         handler(driver).closeCompetitionModal();
-        handler(driver).stripePopupClose();
         handler(driver).closeCookies();
         loginButton(expectedResponseCode);
         userInfo(userName, password);
         submitButton(expectedResponseCode);
+        try{
+            wait(driver).until(ExpectedConditions.visibilityOf(stripePopupClose));
+        }catch (Exception e){
+
+        }
+        handler(driver).stripePopupClose();
     }
 }

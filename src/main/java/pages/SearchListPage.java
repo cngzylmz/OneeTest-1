@@ -1,12 +1,11 @@
 package pages;
 
-import helper.OneeMethods;
-import helper.OneeWebElements;
-import helper.TestParameters;
+import helper.*;
 import jsonHelper.ReadJson;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
@@ -14,8 +13,11 @@ import java.util.List;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class SearchListPage extends OneeWebElements implements TestParameters, OneeMethods, ReadJson {
+public class SearchListPage extends OneeWebElements implements TestParameters, OneeMethods, ReadJson, AmenitiesElements {
     WebDriver driver;
+    String firstCount;
+    String secondCount;
+
 
     public SearchListPage(WebDriver driver) {
         this.driver = driver;
@@ -39,8 +41,8 @@ public class SearchListPage extends OneeWebElements implements TestParameters, O
     }
 
     public void searchDatesInput(String checkInDates, String checkOutDates) {
-        checkInDate.sendKeys(checkInDates);
-        checkOutDate.sendKeys(checkOutDates);
+        searchBarCheckInDate.sendKeys(checkInDates);
+        searchBarCheckOutDate.sendKeys(checkOutDates);
     }
 
     public void searchButton(int expectedResponseCode) {
@@ -49,79 +51,31 @@ public class SearchListPage extends OneeWebElements implements TestParameters, O
         searchButton.click();
     }
 
-    public void searchListSizeCheck(int n) {
+    public void searchListSizeCheck(int count) {
         List<WebElement> searchList = wait(driver).until(ExpectedConditions.
                 visibilityOfAllElementsLocatedBy(By.xpath(search(driver).searchList)));
-        assertTrue(searchList.size() >= n);
+        assertTrue(searchList.size() >= count);
     }
 
     public void searchListDateInputCheck(String checkInDates, String checkOutDates) {
-        assertEquals(checkInDate.getAttribute("value"), checkInDates);
-        assertEquals(checkOutDate.getAttribute("value"), checkOutDates);
+        assertEquals(searchBarCheckInDate.getAttribute("value"), checkInDates);
+        assertEquals(searchBarCheckOutDate.getAttribute("value"), checkOutDates);
     }
 
     public void searchListLocationInputCheck(String location) {
         assertEquals(searchInput.getAttribute("value"), location);
     }
 
-    public void adultCount(int n, String choose) {
-        String firstCount = "";
-        String secondCount = "";
-        wait(driver).until(ExpectedConditions.visibilityOf(guestAdultsAdd));
-        firstCount = guestAdultsCount.getText();
-        if (choose.equalsIgnoreCase("add")) {
-            for (int i = 1; i <= n; i++) {
-                guestAdultsAdd.click();
-            }
-        }
-        if (choose.equalsIgnoreCase("remove")) {
-            for (int i = 1; i <= n; i++) {
-                guestAdultsRemove.click();
-            }
-        }
-        secondCount = guestAdultsCount.getText();
-
-        assertTrue(firstCount != secondCount);
+    public void adultCount(int count, String addORemove) {
+        searchFilterAddRemoveCount(count, addORemove, searchBarGuestAdultsAdd, searchBarGuestAdultsRemove, searchBarGuestAdultsCount);
     }
 
-    public void childrenCount(int n, String choose) {
-        String firstCount = "";
-        String secondCount = "";
-        wait(driver).until(ExpectedConditions.visibilityOf(guestChildrenAdd));
-        firstCount = guestChildrenCount.getText();
-        if (choose.equalsIgnoreCase("add")) {
-            for (int i = 1; i <= n; i++) {
-                guestChildrenAdd.click();
-            }
-        }
-        if (choose.equalsIgnoreCase("remove")) {
-            for (int i = 1; i <= n; i++) {
-                guestChildrenRemove.click();
-            }
-        }
-        secondCount = guestChildrenCount.getText();
-
-        assertTrue(firstCount != secondCount);
+    public void childrenCount(int count, String addORemove) {
+        searchFilterAddRemoveCount(count, addORemove, searchBarGuestChildrenAdd, searchBarGuestChildrenRemove, searchBarGuestChildrenCount);
     }
 
-    public void petCount(int n, String choose) {
-        String firstCount = "";
-        String secondCount = "";
-        wait(driver).until(ExpectedConditions.visibilityOf(guestPetAdd));
-        firstCount = guestPetCount.getText();
-        if (choose.equalsIgnoreCase("add")) {
-            for (int i = 1; i <= n; i++) {
-                guestPetAdd.click();
-            }
-        }
-        if (choose.equalsIgnoreCase("remove")) {
-            for (int i = 1; i <= n; i++) {
-                guestPetRemove.click();
-            }
-        }
-        secondCount = guestPetCount.getText();
-
-        assertTrue(firstCount != secondCount);
+    public void petCount(int count, String addORemove) {
+        searchFilterAddRemoveCount(count, addORemove, searchBarGuestPetAdd, searchBarGuestPetRemove, searchBarGuestPetCount);
     }
 
     public void childrenAgeListCheck(int count) {
@@ -135,21 +89,22 @@ public class SearchListPage extends OneeWebElements implements TestParameters, O
 
     public void guestAdultsCountCheck(int count) {
         String c = String.valueOf(count);
-        assertEquals(guestAdultsCount.getText(), c);
+        assertEquals(searchBarGuestAdultsCount.getText(), c);
     }
 
     public void guestChildrenCountCheck(int count) {
         String c = String.valueOf(count);
-        assertEquals(guestChildrenCount.getText(), c);
+        assertEquals(searchBarGuestChildrenCount.getText(), c);
     }
 
     public void guestPetCountCheck(int count) {
         String c = String.valueOf(count);
-        assertEquals(guestPetCount.getText(), c);
+        assertEquals(searchBarGuestPetCount.getText(), c);
     }
 
-    public void searchPropertyPhoto(String photo) {
+    public void searchPropertyPhoto(String photo) throws InterruptedException {
         wait(driver).until(ExpectedConditions.visibilityOf(searchCardPhoto));
+        Thread.sleep(3000);
         assertEquals(searchCardPhoto.getAttribute("style"), photo);
     }
 
@@ -176,6 +131,111 @@ public class SearchListPage extends OneeWebElements implements TestParameters, O
     public void searchPropertyBathCount(String bathRoomCount) {
         wait(driver).until(ExpectedConditions.visibilityOf(searchCardBathCount));
         assertEquals(searchCardBathCount.getText(), bathRoomCount);
+    }
+
+    public void searchListPropertyTotalCountCheck() {
+        wait(driver).until(ExpectedConditions.visibilityOf(searchListCount));
+        String propertyCount = searchListCount.getText();
+        assertTrue(searchListPropertyCount == splitTextToInt(propertyCount, 0));
+        assertTrue(splitTextToInt(propertyCount, 3) >= searchListPropertyTotalCount);
+    }
+
+    public void searchListFilterSelectYacht() {
+        searchListFilterPropertyTypeButton.click();
+        searchListFilterPropertyTypeYacht.click();
+        wait(driver).until(ExpectedConditions.visibilityOf(searchListCount));
+        String propertyCount = search(driver).searchListCount.getText();
+        assertTrue(splitTextToInt(propertyCount, 3) == searchListYachtTotalCount);
+    }
+
+    public void searchListFilterSelectVilla() {
+        searchListFilterPropertyTypeButton.click();
+        searchListFilterPropertyTypeVilla.click();
+        wait(driver).until(ExpectedConditions.visibilityOf(searchListCount));
+        String propertyCount = search(driver).searchListCount.getText();
+        assertTrue(splitTextToInt(propertyCount, 3) == searchListVillaTotalCount);
+    }
+
+    public void searchListFilterBedRoomsButton() {
+        wait(driver).until(ExpectedConditions.visibilityOf(searchListFilterBedRoomsButton));
+        searchListFilterBedRoomsButton.click();
+    }
+
+    public void searchListFilterBedRoomsSleeps(int count, String addORemove) {
+        searchFilterAddRemoveCount(count, addORemove, searchListFilterBedRoomsAddSleep, searchListFilterBedRoomsRemoveSleep, searchListFilterBedRoomsSleepCount);
+    }
+
+    public void searchListFilterBedRoomsBedRooms(int count, String addORemove) {
+        searchFilterAddRemoveCount(count, addORemove, searchListFilterBedRoomsAddBedRooms, searchListFilterBedRoomsRemoveBathRooms, searchListFilterBedRoomsBathRoomsCount);
+    }
+
+    public void searchListFilterBedRoomsBathRooms(int count, String addORemove) {
+        searchFilterAddRemoveCount(count, addORemove, searchListFilterBedRoomsAddBedRooms, searchListFilterBedRoomsRemoveBathRooms, searchListFilterBedRoomsBathRoomsCount);
+    }
+
+    public void searchListFilterBedRoomsApply(int expectedPropertyCount) {
+        searchListFilterBedRoomsApply.click();
+        wait(driver).until(ExpectedConditions.visibilityOf(searchListCount));
+        assertEquals(splitTextToInt(searchListCount.getText(), 3), expectedPropertyCount);
+    }
+
+    public void searchFilterAddRemoveCount(int count, String addORemove, WebElement add, WebElement remove, WebElement countCheck) {
+//        wait(driver).until(ExpectedConditions.visibilityOf(add));
+        firstCount = countCheck.getText();
+        if (addORemove.equalsIgnoreCase("add")) {
+            for (int i = 1; i <= count; i++) {
+                Actions actions = new Actions(driver);
+                actions.click(add);
+//                add.click();
+            }
+        }
+        if (addORemove.equalsIgnoreCase("remove")) {
+            for (int i = 1; i <= count; i++) {
+                remove.click();
+            }
+        }
+        secondCount = countCheck.getText();
+
+        assertTrue(firstCount != secondCount);
+    }
+
+    public void searchListFilterInstantBookingButton() {
+        wait(driver).until(ExpectedConditions.visibilityOf(searchListFilterInstantBookingButton));
+        searchListFilterInstantBookingButton.click();
+    }
+
+    public void searchListFilterInstantBookingApply(String searchInstantBookingText) {
+        assertEquals(searchListFilterInstantBookingText.getText(), searchInstantBookingText);
+        searchListFilterInstantBookingCheckBox.click();
+        searchListFilterInstantBookingApply.click();
+    }
+
+    public void searchListFilterMoreFiltersButton() {
+        wait(driver).until(ExpectedConditions.visibilityOf(searchListFilterMoreFilterButton));
+        searchListFilterMoreFilterButton.click();
+    }
+
+    public void searchListFilterMoreFiltersTabsCheck() {
+        getWebElement(driver, getAmenitiesElement(Amenities.MOSQUITO_NET)).click();
+        assertEquals(splitTextToInt(searchListCount.getText(), 0), 0);
+    }
+
+    public void searchListFilterMoreFilterApply() {
+        searchListFilterMoreFilterApply.click();
+        wait(driver).until(ExpectedConditions.visibilityOf(searchListCount));
+        assertTrue(splitTextToInt(searchListCount.getText(), 0) == 2);
+    }
+
+    public void searchListFilterMap() {
+        searchListFilterMapButton.click();
+        assertEquals(searchListFilterMapButton.getText(), "Hide Map");
+        assertEquals(searchListMap.getAttribute("class"), "map-container is-open");
+    }
+
+    public void searchListFilterClear(int propertyTotalCount) {
+        searchListFilterClearButton.click();
+        wait(driver).until(ExpectedConditions.visibilityOf(searchListCount));
+        assertTrue(splitTextToInt(searchListCount.getText(), 3) == searchListPropertyTotalCount);
     }
 }
 

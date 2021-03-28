@@ -20,7 +20,7 @@ public class SearchListProperty extends TestBase implements OneeMethods, TestPar
 
     @Description("Search List Property Detail Check")
     @Test(priority = 2, dataProvider = "SearchCardDetails", dataProviderClass = DataProviderClass.class)
-    public void searchListPropertyDetailCheck(String propertyName, String location, String guestCount, String bedRoomCount, String bathRoomCount, String photo) {
+    public void searchListPropertyDetailCheck(String propertyName, String location, String guestCount, String bedRoomCount, String bathRoomCount, String photo) throws InterruptedException {
         System.out.println("Check " + propertyName + " details !!!");
         search(driver).searchLocationInput(propertyName);
         search(driver).searchButton(expectedResponseCode);

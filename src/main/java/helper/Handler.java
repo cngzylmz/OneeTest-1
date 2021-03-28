@@ -35,8 +35,15 @@ public class Handler extends OneeWebElements {
 
     }
 
-    public void stripePopupClose() {
+    public void stripePopupClose() throws InterruptedException {
+        Thread.sleep(2000);
         try {
+            try {
+                Actions actions = new Actions(driver);
+                actions.click(stripePopupClose);
+            } catch (Exception e) {
+
+            }
             stripePopupClose.click();
         } catch (Exception e) {
             System.out.println("Stripe pop-up gösterilmiyor...");

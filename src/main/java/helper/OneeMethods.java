@@ -1,5 +1,6 @@
 package helper;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,18 +15,14 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Date;
 
-public interface OneeMethods{
-
-    default WebDriverWait TestParameters(WebDriver d) {
-        return new WebDriverWait(d, 20);
-    }
+public interface OneeMethods extends AmenitiesElements {
 
     default SoftAssert sAssert() {
         return new SoftAssert();
     }
 
     default WebDriverWait wait(WebDriver d) {
-        return new WebDriverWait(d, 10);
+        return new WebDriverWait(d, 20);
     }
 
     default HomePage homePage(WebDriver d) {
@@ -62,19 +59,43 @@ public interface OneeMethods{
                 element);
         js.executeScript("window.scrollBy(0,-350)", "");
     }
-    default String getDateToCalendar(int plusDate){
+
+    default String getDateToCalendar(int plusDate) {
         Instant now = Instant.now();
         Instant after = now.plus(Duration.ofDays(plusDate));
-        SimpleDateFormat formatter= new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         Date dateAfter = Date.from(after);
         return formatter.format(dateAfter);
     }
-    default void doubleClick(WebDriver d,WebElement e){
+
+    default void doubleClick(WebDriver d, WebElement e) {
         Actions actions = new Actions(d);
         actions.doubleClick(e).perform();
     }
-    default void rightClick(WebDriver d,WebElement e){
+
+    default void rightClick(WebDriver d, WebElement e) {
         Actions actions = new Actions(d);
         actions.contextClick(e).perform();
+    }
+
+    default int splitTextToInt(String split, int i) {
+        String[] parts = split.split(" ");
+        String parse = parts[i];
+        int parsed = Integer.parseInt(parse);
+        return parsed;
+    }
+
+    default String getByCode(String code) {
+        for (Amenities amenitiesElement : Amenities.values()) {
+            if (amenitiesElement.toString().equals(code)) {
+                return getAmenitiesElement(amenitiesElement);
+            }
+        }
+        return null;
+    }
+
+    default WebElement getWebElement(WebDriver d, String path) {
+        WebElement element = d.findElement(By.xpath(path));
+        return element;
     }
 }

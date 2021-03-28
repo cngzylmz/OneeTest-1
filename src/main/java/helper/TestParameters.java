@@ -4,7 +4,8 @@ public interface TestParameters {
 
     int expectedResponseCode = 200;
     String testUrl = "https://onee.com";
-    String userEmail = "Oneevrpmdev@gmail.com";
+    String userTaEmail = "Oneetadev@gmail.com";
+    String userVrpmEmail = "Oneevrpmdev@gmail.com";
     String password = "Onee1oct.2020";
     String propertyId = "10139";
     String country = "Spain";
@@ -12,6 +13,12 @@ public interface TestParameters {
     int petCount = 2;
     int childrenCount = 2;
     int adultCount = 2;
+    int searchListYachtTotalCount = 21 ;
+    int searchListVillaTotalCount = 263;
+    int searchListPropertyCount = 24;
+    int searchListPropertyTotalCount = 284;
+    String searchInstantBookingText = "Show only properties that can accept instant bookings." +
+            " These properties have pricing and calendars updated in real time and can be reserved without prior approval.";
     /*******Villa Details******/
     String photoVilla = "background-image: url(\"https://onee-live.b-cdn.net/53ce5b4a-9fcf-4570-b3bd-3b68db6830ad_villa-mozart-in-sierra-blanca-marbella-9.jpg\");";
     String villaName = "Villa Silueta";
