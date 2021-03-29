@@ -29,12 +29,12 @@ public class SearchListProperty extends TestBase implements OneeMethods, TestPar
         search(driver).searchButton(expectedResponseCode);
         wait(driver).until(ExpectedConditions.visibilityOf(search(driver).searchListCount));
         assertEquals(splitTextToInt(search(driver).searchListCount.getText(),0),1);
-        search(driver).searchPropertyPhoto(photo);
-        search(driver).searchPropertyName(propertyName);
-        search(driver).searchPropertyLocation(location);
-        search(driver).searchPropertyGuestCount(guestCount);
-        search(driver).searchPropertyBedCount(bedRoomCount);
-        search(driver).searchPropertyBathCount(bathRoomCount);
+        search(driver).searchPropertyCardPhoto(photo);
+        search(driver).searchPropertyCardName(propertyName);
+        search(driver).searchPropertyCardLocation(location);
+        search(driver).searchPropertyCardGuestCount(guestCount);
+        search(driver).searchPropertyCardBedCount(bedRoomCount);
+        search(driver).searchPropertyCardBathCount(bathRoomCount);
         driver.navigate().refresh();
     }
 }

@@ -102,33 +102,33 @@ public class SearchListPage extends OneeWebElements implements TestParameters, O
         assertEquals(searchBarGuestPetCount.getText(), c);
     }
 
-    public void searchPropertyPhoto(String photo) throws InterruptedException {
+    public void searchPropertyCardPhoto(String photo) throws InterruptedException {
         wait(driver).until(ExpectedConditions.visibilityOf(searchCardPhoto));
         Thread.sleep(3000);
         assertEquals(searchCardPhoto.getAttribute("style"), photo);
     }
 
-    public void searchPropertyName(String propertyName) {
+    public void searchPropertyCardName(String propertyName) {
         wait(driver).until(ExpectedConditions.visibilityOf(searchCardPropertyName));
         assertEquals(searchCardPropertyName.getText(), propertyName);
     }
 
-    public void searchPropertyLocation(String location) {
+    public void searchPropertyCardLocation(String location) {
         wait(driver).until(ExpectedConditions.visibilityOf(searchCardPropertyLocation));
         assertEquals(searchCardPropertyLocation.getText(), location);
     }
 
-    public void searchPropertyGuestCount(String guestCount) {
+    public void searchPropertyCardGuestCount(String guestCount) {
         wait(driver).until(ExpectedConditions.visibilityOf(searchCardGuestCount));
         assertEquals(searchCardGuestCount.getText(), guestCount);
     }
 
-    public void searchPropertyBedCount(String bedRoomCount) {
+    public void searchPropertyCardBedCount(String bedRoomCount) {
         wait(driver).until(ExpectedConditions.visibilityOf(searchCardBedCount));
         assertEquals(searchCardBedCount.getText(), bedRoomCount);
     }
 
-    public void searchPropertyBathCount(String bathRoomCount) {
+    public void searchPropertyCardBathCount(String bathRoomCount) {
         wait(driver).until(ExpectedConditions.visibilityOf(searchCardBathCount));
         assertEquals(searchCardBathCount.getText(), bathRoomCount);
     }
@@ -162,22 +162,8 @@ public class SearchListPage extends OneeWebElements implements TestParameters, O
     }
 
     public void searchListFilterBedRoomsSleeps(int count, String addORemove) {
-//        searchFilterAddRemoveCount(count, addORemove, searchListFilterBedRoomsAddSleep, searchListFilterBedRoomsRemoveSleep, searchListFilterBedRoomsSleepCount);
-        wait(driver).until(ExpectedConditions.visibilityOf(searchListFilterBedRoomsSleepCount));
-        firstCount = searchListFilterBedRoomsSleepCount.getText();
-        if (addORemove.equalsIgnoreCase("add")) {
-            for (int i = 1; i <= count; i++) {
-                searchListFilterBedRoomsAddSleep.click();
-            }
-        }
-        if (addORemove.equalsIgnoreCase("remove")) {
-            for (int i = 1; i <= count; i++) {
-                searchListFilterBedRoomsRemoveSleep.click();
-            }
-        }
-        secondCount = searchListFilterBedRoomsSleepCount.getText();
+        searchFilterAddRemoveCount(count, addORemove, searchListFilterBedRoomsAddSleep, searchListFilterBedRoomsRemoveSleep, searchListFilterBedRoomsSleepCount);
 
-        assertTrue(firstCount != secondCount);
     }
 
     public void searchListFilterBedRoomsBedRooms(int count, String addORemove) {

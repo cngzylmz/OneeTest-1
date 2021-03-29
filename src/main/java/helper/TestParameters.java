@@ -4,9 +4,9 @@ public interface TestParameters {
 
     int expectedResponseCode = 200;
     String testUrl = "https://onee.com";
-    String userTaEmail = "Oneetadev@gmail.com";
-    String userVrpmEmail = "Oneevrpmdev@gmail.com";
-    String password = "Onee1oct.2020";
+    String[] userDemoTa = {"oneedemota@gmail.com","Onee.demo.2021"};
+    String [] userDevVrpm = {"Oneevrpmdev@gmail.com","Onee1oct.2020"};
+    String [] userDevTa = {"Oneetadev@gmail.com","Onee1oct.2020"};
     String propertyId = "10139";
     String country = "Spain";
     String testProperty = "https://onee.com/detail/10474";
