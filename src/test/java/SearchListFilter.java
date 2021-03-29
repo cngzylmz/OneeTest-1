@@ -20,14 +20,14 @@ public class SearchListFilter extends TestBase implements OneeMethods, TestParam
 
     @Description("Search List Filter Property Type Check")
     @Test(priority = 2)
-    public void searchListFilterPropertyType() {
+    public void searchListFilterPropertyType() throws InterruptedException {
         search(driver).searchListFilterSelectYacht();
         search(driver).searchListFilterSelectVilla();
     }
 
     @Description("Search List Filter Bedroom - Sleeps Check")
     @Test(priority = 3)
-    public void searchListFilterSleeps() {
+    public void searchListFilterSleeps() throws InterruptedException {
         search(driver).searchListFilterBedRoomsButton();
         search(driver).searchListFilterBedRoomsSleeps(15, "add");
         search(driver).searchListFilterBedRoomsApply(43);
@@ -35,7 +35,7 @@ public class SearchListFilter extends TestBase implements OneeMethods, TestParam
 
     @Description("Search List Filter Bedroom - BedRoom Check")
     @Test(priority = 4, dependsOnMethods = "searchListFilterSleeps")
-    public void searchListFilterBedRooms() {
+    public void searchListFilterBedRooms() throws InterruptedException {
         search(driver).searchListFilterBedRoomsButton();
         search(driver).searchListFilterBedRoomsBedRooms(15, "add");
         search(driver).searchListFilterBedRoomsApply(5);
@@ -43,7 +43,7 @@ public class SearchListFilter extends TestBase implements OneeMethods, TestParam
 
     @Description("Search List Filter Bedroom - BathRoom Check")
     @Test(priority = 5, dependsOnMethods = "searchListFilterSleeps")
-    public void searchListFilterBathRooms() {
+    public void searchListFilterBathRooms() throws InterruptedException {
         search(driver).searchListFilterBedRoomsButton();
         search(driver).searchListFilterBedRoomsBathRooms(26, "add");
         search(driver).searchListFilterBedRoomsApply(1);
@@ -58,7 +58,7 @@ public class SearchListFilter extends TestBase implements OneeMethods, TestParam
 
     @Description("Search List Filter MoreFilters Check")
     @Test(priority = 7)
-    public void searchListFilterMoreFilters() {
+    public void searchListFilterMoreFilters() throws InterruptedException {
         search(driver).searchListFilterMoreFiltersButton();
         search(driver).searchListFilterMoreFiltersTabsCheck();
         search(driver).searchListFilterMoreFilterApply();

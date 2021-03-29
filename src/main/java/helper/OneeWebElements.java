@@ -183,7 +183,7 @@ public class OneeWebElements {
     public WebElement searchListFilterMapButton;
     @FindBy(xpath = "//div[@id='root']//div[@class='main']//div[@class='prod-list container-fluid']/div[1]")
     public WebElement searchListMap;
-    @FindBy(xpath = "///div[@id='filter-box']/div/div[3]/button")
+    @FindBy(xpath = "//div[@id='filter-box']/div/div[4]/button")
     public WebElement searchListFilterClearButton;
 
     /********** Search List Property Card *********/

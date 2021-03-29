@@ -171,7 +171,7 @@ public class SearchListPage extends OneeWebElements implements TestParameters, O
     }
 
     public void searchListFilterBedRoomsBathRooms(int count, String addORemove) {
-        searchFilterAddRemoveCount(count, addORemove, searchListFilterBedRoomsAddBedRooms, searchListFilterBedRoomsRemoveBathRooms, searchListFilterBedRoomsBathRoomsCount);
+        searchFilterAddRemoveCount(count, addORemove, searchListFilterBedRoomsAddBathRooms, searchListFilterBedRoomsRemoveBathRooms, searchListFilterBedRoomsBathRoomsCount);
     }
 
     public void searchListFilterBedRoomsApply(int expectedPropertyCount) {
@@ -216,13 +216,13 @@ public class SearchListPage extends OneeWebElements implements TestParameters, O
 
     public void searchListFilterMoreFiltersTabsCheck() {
         getWebElement(driver, getAmenitiesElement(Amenities.MOSQUITO_NET)).click();
-        assertEquals(splitTextToInt(searchListCount.getText(), 0), 0);
     }
 
     public void searchListFilterMoreFilterApply() {
         searchListFilterMoreFilterApply.click();
-        wait(driver).until(ExpectedConditions.visibilityOf(searchListCount));
-        assertTrue(splitTextToInt(searchListCount.getText(), 0) == 2);
+        Actions action = new Actions(driver);
+        action.click(searchListFilterMoreFilterApply);
+        assertTrue(splitTextToInt(searchListCount.getText(), 0) == 0);
     }
 
     public void searchListFilterMap() {
