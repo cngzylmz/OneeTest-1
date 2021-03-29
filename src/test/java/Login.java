@@ -20,7 +20,7 @@ public class Login extends TestBase implements OneeMethods, TestParameters, Read
         handler(driver).closeCookies();
         assertEquals(responseCode(driver.getCurrentUrl()), expectedResponseCode);
         loginPage(driver).loginButton(expectedResponseCode);
-        loginPage(driver).userInfo(userTaEmail, password);
+        loginPage(driver).userInfo(userDevVrpm[0], userDevVrpm[1]);
         loginPage(driver).submitButton(expectedResponseCode);
         handler(driver).stripePopupClose();
         loginPage(driver).checkLogin();

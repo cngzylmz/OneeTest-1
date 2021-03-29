@@ -12,7 +12,7 @@ public class SearchListFilter extends TestBase implements OneeMethods, TestParam
     @Test(priority = 1)
     public void searchListFilterOpen() throws InterruptedException {
         driver.get(testUrl);
-        loginPage(driver).login(userTaEmail, password, expectedResponseCode);
+        loginPage(driver).login(userDemoTa[0],userDemoTa[1], expectedResponseCode);
         scrollToElement(driver, search(driver).searchInput);
         search(driver).searchButton(expectedResponseCode);
         search(driver).searchListPropertyTotalCountCheck();
