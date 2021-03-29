@@ -32,7 +32,7 @@ public class SearchListPage extends OneeWebElements implements TestParameters, O
                 break;
             }
         }
-        assertTrue(driver.getCurrentUrl().equalsIgnoreCase(testUrl + "/detail/" + propertyId));
+        assertTrue(driver.getCurrentUrl().equalsIgnoreCase(testUrl + "/detail/" + propertyId),"Test Property Card Photo Broken");
     }
 
     public void searchLocationInput(String location) {
@@ -162,7 +162,22 @@ public class SearchListPage extends OneeWebElements implements TestParameters, O
     }
 
     public void searchListFilterBedRoomsSleeps(int count, String addORemove) {
-        searchFilterAddRemoveCount(count, addORemove, searchListFilterBedRoomsAddSleep, searchListFilterBedRoomsRemoveSleep, searchListFilterBedRoomsSleepCount);
+//        searchFilterAddRemoveCount(count, addORemove, searchListFilterBedRoomsAddSleep, searchListFilterBedRoomsRemoveSleep, searchListFilterBedRoomsSleepCount);
+        wait(driver).until(ExpectedConditions.visibilityOf(searchListFilterBedRoomsSleepCount));
+        firstCount = searchListFilterBedRoomsSleepCount.getText();
+        if (addORemove.equalsIgnoreCase("add")) {
+            for (int i = 1; i <= count; i++) {
+                searchListFilterBedRoomsAddSleep.click();
+            }
+        }
+        if (addORemove.equalsIgnoreCase("remove")) {
+            for (int i = 1; i <= count; i++) {
+                searchListFilterBedRoomsRemoveSleep.click();
+            }
+        }
+        secondCount = searchListFilterBedRoomsSleepCount.getText();
+
+        assertTrue(firstCount != secondCount);
     }
 
     public void searchListFilterBedRoomsBedRooms(int count, String addORemove) {

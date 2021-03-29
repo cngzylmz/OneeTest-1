@@ -6,13 +6,13 @@ import io.qameta.allure.Description;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-//@Listeners({AllureListener.class})
+@Listeners({AllureListener.class})
 public class SearchListFilter extends TestBase implements OneeMethods, TestParameters {
     @Description("Search List Open")
     @Test(priority = 1)
     public void searchListFilterOpen() throws InterruptedException {
         driver.get(testUrl);
-        loginPage(driver).login(userTaEmail,password,expectedResponseCode);
+        loginPage(driver).login(userTaEmail, password, expectedResponseCode);
         scrollToElement(driver, search(driver).searchInput);
         search(driver).searchButton(expectedResponseCode);
         search(driver).searchListPropertyTotalCountCheck();
@@ -34,7 +34,7 @@ public class SearchListFilter extends TestBase implements OneeMethods, TestParam
     }
 
     @Description("Search List Filter Bedroom - BedRoom Check")
-    @Test(priority = 4,dependsOnMethods = "searchListFilterSleeps")
+    @Test(priority = 4, dependsOnMethods = "searchListFilterSleeps")
     public void searchListFilterBedRooms() {
         search(driver).searchListFilterBedRoomsButton();
         search(driver).searchListFilterBedRoomsBedRooms(15, "add");
@@ -42,7 +42,7 @@ public class SearchListFilter extends TestBase implements OneeMethods, TestParam
     }
 
     @Description("Search List Filter Bedroom - BathRoom Check")
-    @Test(priority = 5,dependsOnMethods = "searchListFilterSleeps")
+    @Test(priority = 5, dependsOnMethods = "searchListFilterSleeps")
     public void searchListFilterBathRooms() {
         search(driver).searchListFilterBedRoomsButton();
         search(driver).searchListFilterBedRoomsBathRooms(26, "add");

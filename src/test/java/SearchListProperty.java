@@ -1,8 +1,11 @@
 import helper.*;
 import io.qameta.allure.Description;
 import jsonHelper.ReadJson;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertEquals;
 
 
 @Listeners({AllureListener.class})
@@ -24,6 +27,8 @@ public class SearchListProperty extends TestBase implements OneeMethods, TestPar
         System.out.println("Check " + propertyName + " details !!!");
         search(driver).searchLocationInput(propertyName);
         search(driver).searchButton(expectedResponseCode);
+        wait(driver).until(ExpectedConditions.visibilityOf(search(driver).searchListCount));
+        assertEquals(splitTextToInt(search(driver).searchListCount.getText(),0),1);
         search(driver).searchPropertyPhoto(photo);
         search(driver).searchPropertyName(propertyName);
         search(driver).searchPropertyLocation(location);
