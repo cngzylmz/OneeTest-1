@@ -28,6 +28,7 @@ public class SearchListProperty extends TestBase implements OneeMethods, TestPar
         search(driver).searchLocationInput(propertyName);
         search(driver).searchButton(expectedResponseCode);
         wait(driver).until(ExpectedConditions.visibilityOf(search(driver).searchListCount));
+        System.out.println(search(driver).searchListCount);
         assertEquals(splitTextToInt(search(driver).searchListCount.getText(),0),1);
         search(driver).searchPropertyCardPhoto(photo);
         search(driver).searchPropertyCardName(propertyName);
