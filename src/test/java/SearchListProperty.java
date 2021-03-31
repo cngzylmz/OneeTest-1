@@ -26,7 +26,6 @@ public class SearchListProperty extends TestBase implements OneeMethods, TestPar
     public void searchListPropertyDetailCheck(String propertyName, String location, String guestCount, String bedRoomCount, String bathRoomCount, String photo) throws InterruptedException {
         System.out.println("Check " + propertyName + " details !!!");
         search(driver).searchLocationInput(propertyName);
-        //deneme
         Thread.sleep(3000);
         search(driver).searchButton(expectedResponseCode);
         wait(driver).until(ExpectedConditions.visibilityOf(search(driver).searchListCount));
