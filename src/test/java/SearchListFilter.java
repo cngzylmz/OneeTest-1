@@ -12,7 +12,7 @@ public class SearchListFilter extends TestBase implements OneeMethods, TestParam
     @Test(priority = 1)
     public void searchListFilterOpen() throws InterruptedException {
         driver.get(testUrl);
-        loginPage(driver).login(userDemoTa[0],userDemoTa[1], expectedResponseCode);
+        loginPage(driver).login(userDemoTa[0], userDemoTa[1], expectedResponseCode);
         scrollToElement(driver, search(driver).searchInput);
         search(driver).searchButton(expectedResponseCode);
         search(driver).searchListPropertyTotalCountCheck();
@@ -20,7 +20,7 @@ public class SearchListFilter extends TestBase implements OneeMethods, TestParam
 
     @Description("Search List Filter Property Type Check")
     @Test(priority = 2)
-    public void searchListFilterPropertyType() throws InterruptedException {
+    public void searchListFilterPropertyType() {
         search(driver).searchListFilterSelectYacht();
         search(driver).searchListFilterSelectVilla();
     }

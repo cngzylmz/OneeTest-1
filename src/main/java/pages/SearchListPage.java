@@ -32,7 +32,7 @@ public class SearchListPage extends OneeWebElements implements TestParameters, O
                 break;
             }
         }
-        assertTrue(driver.getCurrentUrl().equalsIgnoreCase(testUrl + "/detail/" + propertyId),"Test Property Card Photo Broken");
+        assertTrue(driver.getCurrentUrl().equalsIgnoreCase(testUrl + "/detail/" + propertyId), "Test Property Card Photo Broken");
     }
 
     public void searchLocationInput(String location) {
@@ -153,7 +153,8 @@ public class SearchListPage extends OneeWebElements implements TestParameters, O
         searchListFilterPropertyTypeVilla.click();
         wait(driver).until(ExpectedConditions.visibilityOf(searchListCount));
         String propertyCount = search(driver).searchListCount.getText();
-        assertTrue(splitTextToInt(propertyCount, 3) == searchListVillaTotalCount);
+        assertTrue(splitTextToInt(propertyCount, 3) <= searchListVillaTotalCount &&
+                splitTextToInt(propertyCount, 3) >= searchListVillaTotalCount + 10);
     }
 
     public void searchListFilterBedRoomsButton() {
@@ -177,7 +178,8 @@ public class SearchListPage extends OneeWebElements implements TestParameters, O
     public void searchListFilterBedRoomsApply(int expectedPropertyCount) {
         searchListFilterBedRoomsApply.click();
         wait(driver).until(ExpectedConditions.visibilityOf(searchListCount));
-        assertEquals(splitTextToInt(searchListCount.getText(), 3), expectedPropertyCount);
+        assertTrue(splitTextToInt(searchListCount.getText(), 3) >= expectedPropertyCount &&
+                (splitTextToInt(searchListCount.getText(), 3) <= (expectedPropertyCount + 10)));
     }
 
     public void searchFilterAddRemoveCount(int count, String addORemove, WebElement add, WebElement remove, WebElement countCheck) {
@@ -234,7 +236,7 @@ public class SearchListPage extends OneeWebElements implements TestParameters, O
     public void searchListFilterClear(int propertyTotalCount) {
         searchListFilterClearButton.click();
         wait(driver).until(ExpectedConditions.visibilityOf(searchListCount));
-        assertTrue(splitTextToInt(searchListCount.getText(), 3) == searchListPropertyTotalCount);
+        assertTrue(splitTextToInt(searchListCount.getText(), 3) >= searchListPropertyTotalCount);
     }
 }
 
