@@ -40,12 +40,13 @@ public class Handler extends OneeWebElements {
         try {
             Actions actions = new Actions(driver);
             actions.click(stripePopupClose);
+        } catch (Exception e) {
+            try {
+                stripePopupClose.click();
+            } catch (Exception ex) {
+                System.out.println("Cookies kapatılamadı...");
+            }
+        }
 
-        } catch (Exception e) {
-        }
-        try {
-            stripePopupClose.click();
-        } catch (Exception e) {
-        }
     }
 }

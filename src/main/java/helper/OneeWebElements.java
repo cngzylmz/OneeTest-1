@@ -159,9 +159,9 @@ public class OneeWebElements {
     public WebElement searchListFilterInstantBookingButton;
     @FindBy(xpath = "//div[@id='filter-box']//div[@role='tooltip']//p")
     public WebElement searchListFilterInstantBookingText;
-    @FindBy(xpath = "//div[@id='filter-box']/div[3]/div/div/div/div[@role='tooltip']//input")
+    @FindBy(xpath = "//div[@id='filter-box']//div[@role='tooltip']//input[@class='ant-checkbox-input']")
     public WebElement searchListFilterInstantBookingCheckBox;
-    @FindBy(xpath = "//div[@id='filter-box']/div[3]/div/div//div[@role='tooltip']//button")
+    @FindBy(xpath = "//div[@id='filter-box']//div[@role='tooltip']//button[contains(text(),'Apply')]")
     public WebElement searchListFilterInstantBookingApply;
 
     /********** Search Bar Filter More Filters *********/

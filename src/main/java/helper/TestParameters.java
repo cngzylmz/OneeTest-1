@@ -14,9 +14,9 @@ public interface TestParameters {
     int childrenCount = 2;
     int adultCount = 2;
     int searchListYachtTotalCount = 21 ;
-    int searchListVillaTotalCount = 263;
+    int searchListVillaTotalCount = 323;
     int searchListPropertyCount = 24;
-    int searchListPropertyTotalCount = 284;
+    int searchListPropertyTotalCount = 302;
     String searchInstantBookingText = "Show only properties that can accept instant bookings." +
             " These properties have pricing and calendars updated in real time and can be reserved without prior approval.";
     /*******Villa Details******/
