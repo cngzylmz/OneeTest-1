@@ -147,7 +147,17 @@ public class SearchListPage extends OneeWebElements implements TestParameters, O
 
     public void searchListFilterSelectYacht() {
         searchListFilterPropertyTypeButton();
-        searchListFilterPropertyTypeYacht.click();
+        try {
+            Actions actions = new Actions(driver);
+            actions.click(searchListFilterPropertyTypeYacht);
+        } catch (Exception e) {
+
+        }
+        try {
+            searchListFilterPropertyTypeYacht.click();
+        } catch (Exception e) {
+
+        }
         wait(driver).until(ExpectedConditions.visibilityOf(searchListCount));
         String propertyCount = search(driver).searchListCount.getText();
         assertTrue(splitTextToInt(propertyCount, 3) <= searchListYachtTotalCount + 10);
