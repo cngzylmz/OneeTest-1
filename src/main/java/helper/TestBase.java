@@ -40,7 +40,7 @@ public class TestBase implements TestParameters {
     public void beforeSuite() {
 
         String runningPlatform = "Linux";
-        System.setProperty("webdriver.chrome.driver", "libs/chromedriver-linux");
+        System.setProperty("webdriver.chrome.driver", "chromedriver");
 
 //        String runningPlatform = "Windows";
 //        System.setProperty("webdriver.chrome.driver",
