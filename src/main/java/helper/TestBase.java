@@ -40,12 +40,13 @@ public class TestBase implements TestParameters {
     public void beforeSuite() {
 
         String runningPlatform = "Linux";
-        System.setProperty("webdriver.chrome.driver", "chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/libs/chromedriver-linux");
 
 //        String runningPlatform = "Windows";
 //        System.setProperty("webdriver.chrome.driver",
 //                "C:\\Users\\cngz\\Desktop\\workspace\\OneeTest\\libs\\chromedriverwin.exe");
-//     System.setProperty("webdriver.chrome.driver", "/Users/cengizyilmaz/IdeaProjects/OneeTest-1/libs/chromedriver-mac");
+//        String runningPlatform = "MacOs";
+//        System.setProperty("webdriver.chrome.driver", "/Users/cengizyilmaz/IdeaProjects/OneeTest-1/libs/chromedriver-mac");
 
 
         System.out.println(runningPlatform);
