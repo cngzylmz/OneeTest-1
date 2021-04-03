@@ -18,15 +18,15 @@ public class SearchListFilter extends TestBase implements OneeMethods, TestParam
         search(driver).searchListPropertyTotalCountCheck(searchListPropertyTotalCount);
     }
 
-    @Description("Search List Filter Property Type Check")
-    @Test(priority = 2, dependsOnMethods = "searchListFilterOpen")
-    public void searchListFilterPropertyType() {
-        search(driver).searchListFilterSelectYacht();
-        search(driver).searchListFilterSelectVilla();
-    }
+//    @Description("Search List Filter Property Type Check")
+//    @Test(priority = 2, dependsOnMethods = "searchListFilterOpen")
+//    public void searchListFilterPropertyType() {
+//        search(driver).searchListFilterSelectYacht();
+//        search(driver).searchListFilterSelectVilla();
+//    }
 
     @Description("Search List Filter Bedroom - Sleeps Check")
-    @Test(priority = 3, dependsOnMethods = "searchListFilterPropertyType")
+    @Test(priority = 3, dependsOnMethods = "searchListFilterOpen")
     public void searchListFilterSleeps() {
         search(driver).searchListFilterBedRoomsButton();
         search(driver).searchListFilterBedRoomsSleeps(15, "add");
