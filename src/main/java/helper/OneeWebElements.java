@@ -1,9 +1,12 @@
 package helper;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 
-public class OneeWebElements {
+import java.util.List;
+
+public class OneeWebElements implements TestParameters {
     /*************HOME PAGE*************/
     public String travelInspirationList = "//section[1]/div//a";
     public String trendingDestinationList = "//section[2]/div/div//a";
@@ -200,6 +203,94 @@ public class OneeWebElements {
     @FindBy(xpath = "//div[@id='root']//div[@class='ant-row mb-20']/div/a//div[@class='ant-row ant-row-bottom']/div[1]/div[@class='guests']/div[3]/div[2]")
     public WebElement searchCardBathCount;
 
+    /*************PROPERTY DETAIL PAGE*************/
+    @FindBy(xpath = "//div[@class='detail-page']//div[@class='hidden-print']/div[@class='detail-banner']/img")
+    public WebElement propertyDetailBannerPhoto;
+    @FindAll({
+            @FindBy(xpath = "//div[@id='root']//div[@class='detail-page']/div[@class='ant-row']/div[2]//ul[@class='detail-photos-list']//li//img")
+    })
+    public List<WebElement> propertyDetailAsidePhotoList; //4 adet
+    @FindAll({
+            @FindBy(xpath = "//div[@class='container-fluid page-wrap']//div[@class='gallery show']//img")
+    })
+    public List<WebElement> propertyDetailPhotoList; //156 adet
+    @FindBy(xpath = "//div[@class='container-fluid page-wrap']//div[@class='gallery show']//img")
+    public WebElement propertyDetailCalenderCheckIn;
+    @FindBy(xpath = "//div[@class='container-fluid page-wrap']//div[@class='gallery show']//img")
+    public WebElement propertyDetailCalenderCheckOut;
+    @FindBy(xpath = "//div[@id='root']//div[@class='gallery show']")
+    public WebElement propertyDetailGalleryShow;
+    @FindBy(xpath = "//div[@class='gallery-top']/i[@class='icon icon-close']")
+    public WebElement propertyDetailGalleryClose;
+    @FindBy(xpath = "//div[@id='sticky-aside']//button[contains(text(),'Request Availability')]")
+    public WebElement propertyDetailRequestButton;
+    @FindBy(xpath = "//div[@id='sticky-aside']//button[contains(text(),'Ask a question')]")
+    public WebElement propertyDetailAskQuestion;
+
+    @FindBy(xpath = "//div[@id='sticky-aside']//input[@placeholder='Check-In']")
+    public WebElement propertyDetailCheckInClick;// value 16-05-2021
+    @FindBy(xpath = "//div[@id='sticky-aside']//input[@placeholder='Check-Out']")
+    public WebElement propertyDetailCheckOutClick; // value 16-05-2021
+    @FindBy(xpath = "//div[@id='sticky-aside']/div[3]/div/div/div/div[@class='ant-picker-panel-container']/div/div[2]//table[@class='ant-picker-content']" +
+            "//td[@title='2021-05-16']/div[contains(text(),'16')]")
+    public WebElement propertyDetailCheckInDate;
+    @FindBy(xpath = "//div[@id='sticky-aside']/div[3]/div/div/div/div[@class='ant-picker-panel-container']/div/div[2]//table[@class='ant-picker-content']" +
+            "//td[@title='2021-05-23']/div[contains(text(),'23')]")
+    public WebElement propertyDetailCheckOutDate;
+    @FindBy(xpath = "//div[@id='sticky-aside']//div[contains(text(),'" + stayNights + "')]")
+    public WebElement propertyDetailStayNights;
+    @FindBy(xpath = "//div[@id='sticky-aside']//div[contains(text(),'" + "£" + price + "')]")
+    public WebElement propertyDetailPrice;
+    @FindBy(xpath = "//div[@id='sticky-aside']//div[contains(text(),'£729.80')]")
+    public WebElement propertyDetailServiceFee;
+
+
+    @FindBy(xpath = "//div[@id='root']/div[@class='container-fluid page-wrap']//div[@class='detail-page']/div[@class='ant-row']/div[1]//h1[@class='detail-title']")
+    public WebElement propertyDetailOneeName;
+    @FindBy(xpath = "//div[@id='root']/div[@class='container-fluid page-wrap']//div[@class='detail-page']/div[@class='ant-row']/div[1]//div[contains(text(),'40 Guests, 20 Bedrooms, 26 Bathrooms')]")
+    public WebElement propertyDetailRoomsCount;
+    @FindAll({
+            @FindBy(xpath = "//div[@id='root']//div[@class='detail-page']//div[@class='detail-content']//h2")
+    })
+    public List<WebElement> propertyDetailContentTitles;
+    @FindAll({
+            @FindBy(xpath = "//div[@id='root']//div[@class='detail-page']/div[@class='ant-row']/div[1]/div[@class='detail-content']/div[@class='amenities']/ul[@class='amenities-list']//li[@class='item']/div")
+    })
+    public List<WebElement> propertyDetailFeaturedAmenities;
+    @FindBy(xpath = "//div[@id='root']//div[@class='detail-page']/div[@class='ant-row']/div[1]/div[@class='detail-content']/div[4]")
+    public WebElement propertyDetailDescription;
+    @FindBy(xpath = "//div[@id='root']//div[@class='detail-page']/div[@class='ant-row']/div[1]/div[@class='detail-content']/div[6]")
+    public WebElement propertyDetailAbout;
+    @FindBy(xpath = "//div[@id='root']//div[@class='detail-page']/div[@class='ant-row']/div[1]/div[@class='detail-content']/div[8]/div[1]/div[@class='detail-content-text ql-editor']/ul")
+    public WebElement propertyDetailIncludedServices;
+    @FindBy(xpath = "//div[@id='root']//div[@class='detail-page']/div[@class='ant-row']/div[1]/div[@class='detail-content']/div[8]/div[2]/div[@class='detail-content-text ql-editor']/ul")
+    public WebElement propertyDetailOptionalServices;
+    @FindAll(
+            @FindBy(xpath = "//div[@id='root']//div[@class='detail-page']/div[@class='ant-row']/div[1]/div[@class='detail-content']/div[11]//i")
+
+    )
+    public List<WebElement> propertyDetailHouseRules;
+    @FindBy(xpath = "//div[@id='root']//div[@class='detail-page']/div[@class='ant-row']/div[1]/div[@class='detail-content']/div[11]/div[1]/div/div[@class='house-rule-title']")
+    public WebElement propertyDetailHouseRulesStayTitle;
+    @FindBy(xpath = "//div[@id='root']//div[@class='detail-page']/div[@class='ant-row']/div[1]/div[@class='detail-content']/div[11]/div[1]/div/div[@class='house-rule-value']")
+    public WebElement propertyDetailHouseRulesStayValue;
+    @FindBy(xpath = "//div[@id='root']//div[@class='detail-page']/div[@class='ant-row']/div[1]/div[@class='detail-content']/div[11]/div[2]//div[@class='house-rule-title']")
+    public WebElement propertyDetailHouseRulesCheckDatesTitle;
+    @FindBy(xpath = "//div[@id='root']//div[@class='detail-page']/div[@class='ant-row']/div[1]/div[@class='detail-content']/div[11]/div[2]//div[@class='house-rule-value']")
+    public WebElement propertyDetailHouseRulesCheckDatesValue;
+    @FindBy(xpath = "//div[@id='root']//div[@class='detail-page']/div[@class='ant-row']/div[1]/div[@class='detail-content']/div[11]/div[3]//div[@class='house-rule-title']")
+    public WebElement propertyDetailHouseRulesArrivalDatesTitle;
+    @FindBy(xpath = "//div[@id='root']//div[@class='detail-page']/div[@class='ant-row']/div[1]/div[@class='detail-content']/div[11]/div[3]//div[@class='house-rule-value']")
+    public WebElement propertyDetailHouseRulesArrivalDatesValue;
+    @FindBy(xpath = "//div[@id='root']//div[@class='detail-page']/div[@class='ant-row']/div[1]/div[@class='detail-content']/div[11]/div[4]//div[@class='house-rule-title']")
+    public WebElement propertyDetailHouseRulesChildrenRuleTitle;
+    @FindBy(xpath = "//div[@id='root']//div[@class='detail-page']/div[@class='ant-row']/div[1]/div[@class='detail-content']/div[11]/div[4]//div[@class='house-rule-value']")
+    public WebElement propertyDetailHouseRulesChildrenRuleValue;
+    @FindBy(xpath = "//div[@id='root']//div[@class='detail-page']/div[@class='ant-row']/div[1]/div[@class='detail-content']/div[11]/div[5]//div[@class='house-rule-title']")
+    public WebElement propertyDetailHouseRulesSmokingTitle;
+    @FindBy(xpath = "//div[@id='root']//div[@class='detail-page']/div[@class='ant-row']/div[1]/div[@class='detail-content']/div[11]/div[5]//div[@class='house-rule-value']")
+    public WebElement propertyDetailHouseRulesSmokingValue;
+
 
     /*************REGISTER PAGE*************/
     public String policyList = "//*[@id=\"register\"]/div[3]/div[2]/div/div/div/div/label/span[2]";
@@ -352,10 +443,6 @@ public class OneeWebElements {
     @FindBy(xpath = "//div[@id=\"popover-container\"]//a[contains(text(),\"Log Out\")]")
     public WebElement logOut;
     /*************PROPERTY DETAIL PAGES*************/
-    public String galleryList = "//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div[2]/div[1]/ul";
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div/div[2]/div[2]/div[1]/div[1]/img")
-    public WebElement propertyBanner;
-    @FindBy(xpath = "//button[contains(text(),'Ask a question')]")
-    public WebElement askQuestion;
+
 
 }

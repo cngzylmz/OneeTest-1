@@ -10,13 +10,13 @@ public class PmDashboard extends TestBase implements OneeMethods, TestParameters
     //    int responseCode, String testUrl
     @Test
     public void Dashboard() throws InterruptedException {
-        driver.get(testUrl);
-        assertEquals(responseCode(driver.getCurrentUrl()),expectedResponseCode);
-        pmPage(driver).dashboard();
-        assertEquals(responseCode(driver.getCurrentUrl()),expectedResponseCode);
-        pmPage(driver).viewUpcoming();
-        Thread.sleep(3000);
-        pmPage(driver).viewProperty();
+//        driver.get(testUrl);
+//        assertEquals(responseCode(driver.getCurrentUrl()),expectedResponseCode);
+//        pmPage(driver).dashboard();
+//        assertEquals(responseCode(driver.getCurrentUrl()),expectedResponseCode);
+//        pmPage(driver).viewUpcoming();
+//        Thread.sleep(3000);
+//        pmPage(driver).viewProperty();
 
 
     }

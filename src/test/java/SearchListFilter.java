@@ -18,19 +18,19 @@ public class SearchListFilter extends TestBase implements OneeMethods, TestParam
         search(driver).searchListPropertyTotalCountCheck(searchListPropertyTotalCount);
     }
 
-//    @Description("Search List Filter Property Type Check")
-//    @Test(priority = 2, dependsOnMethods = "searchListFilterOpen")
-//    public void searchListFilterPropertyType() {
-//        search(driver).searchListFilterSelectYacht();
-//        search(driver).searchListFilterSelectVilla();
-//    }
+    @Description("Search List Filter Property Type Check")
+    @Test(priority = 2, dependsOnMethods = "searchListFilterOpen")
+    public void searchListFilterPropertyType() {
+        search(driver).searchListFilterSelectYacht();
+        search(driver).searchListFilterSelectVilla();
+    }
 
     @Description("Search List Filter Bedroom - Sleeps Check")
     @Test(priority = 3, dependsOnMethods = "searchListFilterOpen")
     public void searchListFilterSleeps() {
         search(driver).searchListFilterBedRoomsButton();
         search(driver).searchListFilterBedRoomsSleeps(15, "add");
-        search(driver).searchListFilterBedRoomsApply(44);
+        search(driver).searchListFilterBedRoomsApply(searchExpectedSleepsCount);
     }
 
     @Description("Search List Filter Bedroom - BedRoom Check")
@@ -38,7 +38,7 @@ public class SearchListFilter extends TestBase implements OneeMethods, TestParam
     public void searchListFilterBedRooms() {
         search(driver).searchListFilterBedRoomsButton();
         search(driver).searchListFilterBedRoomsBedRooms(15, "add");
-        search(driver).searchListFilterBedRoomsApply(5);
+        search(driver).searchListFilterBedRoomsApply(searchExpectedBedRoomsCount);
     }
 
     @Description("Search List Filter Bedroom - BathRoom Check")
@@ -46,7 +46,7 @@ public class SearchListFilter extends TestBase implements OneeMethods, TestParam
     public void searchListFilterBathRooms() {
         search(driver).searchListFilterBedRoomsButton();
         search(driver).searchListFilterBedRoomsBathRooms(26, "add");
-        search(driver).searchListFilterBedRoomsApply(1);
+        search(driver).searchListFilterBedRoomsApply(searchExpectedBathRoomsCount);
     }
 
 //    @Description("Search List Filter Instant Booking Check")
