@@ -1,5 +1,6 @@
 package helper;
 
+import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
@@ -14,7 +15,7 @@ public class Handler extends OneeWebElements {
         try {
             competitionModalClose.click();
         } catch (Exception e) {
-            System.out.println("Competition modal gösterilmiyor...");
+            e.printStackTrace();
         }
 
     }
@@ -30,7 +31,7 @@ public class Handler extends OneeWebElements {
             }
             cookiesClose.click();
         } catch (Exception e) {
-            System.out.println("Cookies kapatılamadı...");
+            e.printStackTrace();
         }
 
     }
@@ -44,7 +45,7 @@ public class Handler extends OneeWebElements {
             try {
                 stripePopupClose.click();
             } catch (Exception ex) {
-                System.out.println("Cookies kapatılamadı...");
+                e.printStackTrace();
             }
         }
 

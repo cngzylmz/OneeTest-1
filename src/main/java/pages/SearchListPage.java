@@ -160,7 +160,7 @@ public class SearchListPage extends OneeWebElements implements TestParameters, O
         }
         wait(driver).until(ExpectedConditions.visibilityOf(searchListCount));
         String propertyCount = search(driver).searchListCount.getText();
-        assertTrue(splitTextToInt(propertyCount, 3) <= searchListYachtTotalCount + 10);
+        assertTrue(splitTextToInt(propertyCount, 3) <= searchListYachtTotalCount + 5);
     }
 
     public void searchListFilterSelectVilla() {
@@ -204,7 +204,7 @@ public class SearchListPage extends OneeWebElements implements TestParameters, O
     public void searchListFilterBedRoomsApply(int expectedPropertyCount) {
         searchListFilterBedRoomsApply.click();
         wait(driver).until(ExpectedConditions.visibilityOf(searchListCount));
-        assertTrue(splitTextToInt(searchListCount.getText(), 3) <= expectedPropertyCount + 10);
+        assertTrue(splitTextToInt(searchListCount.getText(), 3) <= expectedPropertyCount + 5);
     }
 
     public void searchFilterAddRemoveCount(int count, String addORemove, WebElement add, WebElement remove, WebElement countCheck) {

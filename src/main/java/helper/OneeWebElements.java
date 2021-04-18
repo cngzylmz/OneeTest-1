@@ -29,11 +29,11 @@ public class OneeWebElements implements TestParameters {
     public WebElement travelInspiration;
     @FindBy(xpath = "//section[2]//h1[contains(text(),'Trending Destinations')]")
     public WebElement trendingDestinations;
-    @FindBy(xpath = "//section[3]/div/div[1]/div[1]/div/div/div[@role='tab']")
+    @FindBy(xpath = "//div[@id='root']//section[@class='section-home']//div[@role='tablist']//div[@class='ant-tabs-nav-list']/div[1]/div[@role='tab']")
     public WebElement newestProperties;
-    @FindBy(xpath = "//section[3]/div/div/div/div/div[2]/div[@role='tab']")
+    @FindBy(xpath = "//div[@id='root']//section[@class='section-home']//div[@role='tablist']//div[@class='ant-tabs-nav-list']/div[@class='ant-tabs-tab']/div[@role='tab']")
     public WebElement mostPopularProperties;
-    @FindBy(xpath = "//section[4]/div/div[1]/h1")
+    @FindBy(xpath = "//div[@id='root']//section[@class='newsletter']/div[@class='ant-row']//h1[@class='section-title']")
     public WebElement subscribeTextHome;
     @FindBy(id = "newsletter_email")
     public WebElement subscribeEmailHome;

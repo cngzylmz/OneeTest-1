@@ -26,7 +26,7 @@ public class SearchListFilter extends TestBase implements OneeMethods, TestParam
     }
 
     @Description("Search List Filter Bedroom - Sleeps Check")
-    @Test(priority = 3, dependsOnMethods = "searchListFilterOpen")
+    @Test(priority = 3, dependsOnMethods = "searchListFilterPropertyType")
     public void searchListFilterSleeps() {
         search(driver).searchListFilterBedRoomsButton();
         search(driver).searchListFilterBedRoomsSleeps(15, "add");

@@ -64,8 +64,8 @@ public class HomePage extends OneeWebElements implements OneeMethods, ReadJson {
         scrollToElement(driver, mostPopularProperties);
         wait(driver).until(ExpectedConditions.visibilityOf(mostPopularProperties));
         mostPopularProperties.click();
-        wait(driver).until(ExpectedConditions.attributeContains(
-                mostPopularProperties, "aria-selected", "true"));
+//        wait(driver).until(ExpectedConditions.attributeContains(
+//                mostPopularProperties, "aria-selected", "true"));
         List<WebElement> villas = driver.findElements(By.
                 xpath(mostPopularList));
         assertEquals(villas.size(), 8);

@@ -14,10 +14,10 @@ public interface TestParameters {
     int childrenCount = 2;
     int adultCount = 2;
     int searchListYachtTotalCount = 21 ;
-    int searchListVillaTotalCount = 306;
+    int searchListVillaTotalCount = 335;
     int searchListPropertyCount = 24;
-    int searchListPropertyTotalCount = 327;
-    int searchExpectedSleepsCount = 44;
+    int searchListPropertyTotalCount = 356;
+    int searchExpectedSleepsCount = 49;
     int searchExpectedBedRoomsCount = 5;
     int searchExpectedBathRoomsCount = 1;
     String searchInstantBookingText = "Show only properties that can accept instant bookings." +
@@ -89,7 +89,7 @@ public interface TestParameters {
             " 2 en-suite bedrooms (double beds, sea view)\n" +
             "  Additional Information:\n" +
             "In addition to the cost of this property, please note that all guests will be required to pay a tourist tax at the time of checkout. The tax is 3.00 € per person, per night and is to be paid on spot.\n" +
-            "Parties and pets are only accepted on a request basis.";
+            "Parties are only accepted on a request basis.";
     String includedServices =
             "Concierge\n" +
             "Luggage assistance\n" +
